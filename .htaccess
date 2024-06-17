@@ -1,0 +1,36 @@
+# Enable the rewrite engine
+RewriteEngine On
+
+# Redirect all .html requests to .php files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)\.html$ /$1.php [L,QSA]
+
+# Force www in the URL
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [L,R=301]
+
+# Set default index file
+DirectoryIndex index.php index.html
+
+# Handle 404 errors with a custom page
+ErrorDocument 404 /404.php
+
+# Set PHP values
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value memory_limit 128M
+
+# Disable directory browsing
+Options -Indexes
+
+# Cache HTML files for 1 week
+<FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+
+# Prevent access to .htaccess file
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
