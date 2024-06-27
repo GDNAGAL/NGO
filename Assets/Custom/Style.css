@@ -9,3 +9,39 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover, .social-link:focus {
+  background: #F5F5F5;
+  text-decoration: none;
+  color: #555;
+}
+a{
+  text-decoration: none;
+  color: #555;
+}
+a:hover{
+ color: #1bb7bc;
+}
+svg{
+  color: #1bb7bc;
+}#sumbit button{
+  background-color: #1bb7bc;
+  border: none;
+  border-radius: 50px;
+}
+button :hover{
+  background-color: #555;
+  color: #101010;
+}
