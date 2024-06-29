@@ -50,3 +50,22 @@ button :hover{
  padding-top: 70px;
  padding-left: 30px;
 }
+#card-img{
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#card-img{
+  border: none;
+}
+#body{
+  border-bottom: 3px solid #1bb7bc;
+  border-bottom-right-radius:7px ;
+  border-bottom-left-radius:7px ;
+}
+.card-header{
+  background-color: #e1feff;
+}
+.sidebar-header{
+  background-color: #dee2e6;
+}
