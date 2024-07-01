@@ -36,7 +36,8 @@ a:hover{
 }
 svg{
   color: #1bb7bc;
-}#sumbit button{
+}
+/* }#sumbit button{
   background-color: #1bb7bc;
   border: none;
   border-radius: 50px;
@@ -44,7 +45,7 @@ svg{
 button :hover{
   background-color: #555;
   color: #101010;
-}
+} */
 #assets-img{
  background-color: #e1feff;
  padding-top: 70px;
