@@ -70,3 +70,14 @@ button :hover{
 .sidebar-header{
   background-color: #dee2e6;
 }
+#center-img{
+  background-color: #dee2e6;
+  padding: 30px;
+  margin-left: 130px;
+  margin-right: 130px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+}
+#center-img, img{
+  border-radius: 5px;
+}
