@@ -21,17 +21,16 @@
 </head>
 <body>
 <?php require("include/header.php"); ?>
-  <section>
+<div class="w-100 text-center" style="background-image: url(Assets/images/banner3.jpg); background-repeat: no-repeat; background-size: cover;">
+  <div class="p-4" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div>
+      <h1 class="text-white p-4 m-4" style="opacity: 1;">Contact Us</h1>
+    </div>
   </div>
-  <img src="Assets/contact-bg.jpg" class="card-img-bottom" alt="...">
-  </div> 
-  </section>
+</div>
   <section class="contact-us">
     <div class="container">
-        <div class="text-center mb-lg-5 mb-4 mt-4">
-            <h1>Contact Us</h1>
-        </div>
-        <div class="container">
+        <div class="container pt-4">
           <div class="row text-center">
       
               

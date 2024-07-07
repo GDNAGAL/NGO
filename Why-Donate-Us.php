@@ -21,16 +21,14 @@
 </head>
 <body>
 <?php require("include/header.php"); ?>
-  <header>
-    <div class="carousel-inner mb-3">
-      <div class="carousel-item active">
-        <img src="Assets/banner4.jpg" class="d-block w-100" height="250" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2 class="fw-bold">Success Stories</h2>
-        </div>
+  <div class="w-100 text-center" style="background-image: url(Assets/images/Untitled-12.jpg); background-repeat: no-repeat; background-size: cover;">
+    <div class="p-4" style="background-color: rgba(0, 0, 0, 0.5);">
+      <div>
+        <h1 class="text-white p-4 m-4" style="opacity: 1;">Why Donate Us</h1>
       </div>
     </div>
-  </header>
+  </div>
+  
   <div class="text-center" id="center-img">
     <img src="Assets/cow-1.jpg"class="img-fluid" height="800" width="1100" alt="" />
     <p class="card-text">We appreciate your interest in our organization and the work we do to rescue and rehabilitate animals in need. Your support is vital in helping us continue our mission and make a difference in the lives of countless animals.</p>

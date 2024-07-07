@@ -29,9 +29,10 @@
       </div>
     </div>
   </div>
+  
   <div class="container p-4">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="bg-white shadow rounded p-2 mb-4">
           <div class="rounded" style="border: 1px solid #008080;">
             <div class="p-4">
@@ -45,7 +46,7 @@
         </div>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="bg-white shadow rounded p-2 mb-4">
           <div class="rounded" style="border: 1px solid #008080;">
             <div class="p-4">
@@ -59,7 +60,7 @@
         </div>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="bg-white shadow rounded p-2 mb-4">
           <div class="rounded" style="border: 1px solid #008080;">
             <div class="p-4">
@@ -73,7 +74,7 @@
         </div>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="bg-white shadow rounded p-2 mb-4">
           <div class="rounded" style="border: 1px solid #008080;">
             <div class="p-4">
@@ -88,7 +89,7 @@
       </div>
 
 
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="bg-white shadow rounded p-2 mb-4">
           <div class="rounded" style="border: 1px solid #008080;">
             <div class="p-4">
@@ -102,7 +103,7 @@
         </div>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
         <div class="bg-white shadow rounded p-2 mb-4">
           <div class="rounded" style="border: 1px solid #008080;">
             <div class="p-4">

@@ -21,17 +21,13 @@
 </head>
 <body>
 <?php require("include/header.php"); ?>
-  <header>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="Assets/bannerrr-3.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2 class="fw-bold">Who We Are</h2>
-        </div>
-      </div>
+<div class="w-100 text-center" style="background-image: url(Assets/images/banner3.jpg); background-repeat: no-repeat; background-size: cover;">
+  <div class="p-4" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div>
+      <h1 class="text-white p-4 m-4" style="opacity: 1;">Who We Are</h1>
     </div>
-  </header>
-</section>
+  </div>
+</div>
 <section class="py-3 py-md-5">
   <div class="container">
     <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">

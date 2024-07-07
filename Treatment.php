@@ -21,16 +21,13 @@
 </head>
 <body>
 <?php require("include/header.php"); ?>
-  <header>
-    <div class="carousel-inner mb-3">
-      <div class="carousel-item active">
-        <img src="Assets/Treatment.jpg" class="d-block w-100" height="250" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2 class="fw-bold">Treatment</h2>
-        </div>
-      </div>
+<div class="w-100 text-center" style="background-image: url(Assets/images/banner3.jpg); background-repeat: no-repeat; background-size: cover;">
+  <div class="p-4" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div>
+      <h1 class="text-white p-4 m-4" style="opacity: 1;">Treatment</h1>
     </div>
-  </header>
+  </div>
+</div>
   <div class="text-center" id="center-img">
     <img src="Assets/cow-Treatment.jpg"class="img-fluid" height="800" width="1100" alt="" />
     <p class="card-text">At Dog Home Foundation, we are committed to providing comprehensive and advanced medical treatment for ill, injured, accidental, and wounded animals. Our team of expert doctors and paravets are skilled in handling a wide range of veterinary cases, both on the streets and within our shelter. We utilize state-of-the-art machinery and diagnostic tools to ensure accurate assessments and effective treatment plans.</p>

@@ -23,16 +23,13 @@
 
 <?php require("include/header.php"); ?>
 
-  <header>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="Assets/images/success-stories-bg.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2 class="fw-bold">Success Stories</h2>
-        </div>
-      </div>
+<div class="w-100 text-center" style="background-image: url(Assets/images/banner3.jpg); background-repeat: no-repeat; background-size: cover;">
+  <div class="p-4" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div>
+      <h1 class="text-white p-4 m-4" style="opacity: 1;">Success Stories</h1>
     </div>
-  </header>
+  </div>
+</div>
   <!-- <section class="d-flex">
     <div class="row row-cols-1 pb-4" id="assets-img">
       <div class="col-3">

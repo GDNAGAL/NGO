@@ -21,16 +21,13 @@
 </head>
 <body>
 <?php require("include/header.php"); ?>
-  <header>
-    <div class="carousel-inner mb-3">
-      <div class="carousel-item active">
-        <img src="Assets/Release-min.jpg" class="d-block w-100" height="250" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2 class="fw-bold">Release</h2>
-        </div>
-      </div>
+<div class="w-100 text-center" style="background-image: url(Assets/images/banner3.jpg); background-repeat: no-repeat; background-size: cover;">
+  <div class="p-4" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div>
+      <h1 class="text-white p-4 m-4" style="opacity: 1;">Release</h1>
     </div>
-  </header>
+  </div>
+</div>
   <div class="text-center" id="center-img">
     <img src="Assets/Indian_Street_Dog1-min.jpg"class="img-fluid" height="800" width="1100" alt="" />
     <p class="card-text">We are thrilled to share with you the impactful work being done at the Dog Home Foundation in rehabilitating and releasing animals back to their respective rescued areas. Our commitment to the welfare of animals goes beyond providing temporary shelter; we strive to restore them to their natural habitats once they have made a full recovery.</p>
