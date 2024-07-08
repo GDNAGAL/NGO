@@ -52,7 +52,7 @@
                 Contact Us</a>
             </li>
             <li class="nav-item d-block">
-              <button type="button" class="btn btn-warning shadow-none">Donate naw</button>
+              <button type="button" class="btn btn-warning shadow-none">Donate Now</button>
             </li>
           </ul>
       </div>

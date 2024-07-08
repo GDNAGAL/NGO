@@ -79,25 +79,25 @@
   </div>
   <div class="container pt-3">
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-3 col-6">
         <div class="bg-secondary rounded-3 p-2 text-center mb-3 shadow-sm">
           <h1 class="text-customp fw-bold p-3">10K +</h1>
           <h4>Made Happy Animal</h4>
         </div>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-3 col-6">
         <div class="bg-secondary rounded-3 p-2 text-center mb-3 shadow-sm">
           <h1 class="text-customp fw-bold p-3">500 +</h1>
           <h4>Permanent Resident</h4>
         </div>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-3 col-6">
         <div class="bg-secondary rounded-3 p-2 text-center mb-3 shadow-sm">
           <h1 class="text-customp fw-bold p-3">180 +</h1>
           <h4>Successful Adoption</h4>
         </div>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-3 col-6">
         <div class="bg-secondary rounded-3 p-2 text-center mb-3 shadow-sm">
           <h1 class="text-customp fw-bold p-3">100M +</h1>
           <h4>Donation Completed</h4>

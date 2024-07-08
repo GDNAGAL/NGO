@@ -1,0 +1,16 @@
+:root {
+    --background-color: #dee2e6;
+    --text-color: #101010;
+    --accent-color: #1bb7bc;
+  }
+  
+*{
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  box-sizing: border-box;
+}
+.simg:hover{
+  opacity: 0.5;
+  cursor: pointer;
+}
