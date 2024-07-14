@@ -8,8 +8,8 @@
       <div class="row">
         <!-- Grid column -->
         <div class=" col-lg-3 col-xl-3 mx-auto mt-3">
-          <img src="Assets/images/nav-logo.png" width="100" alt="">
-          <p>Dog Home Foundation, a place where dogs can find another home. It was started with the simple idea of helping the poor stray dogs and treating them</p>
+          <img src="Assets/images/logo.png" width="100" alt="">
+          <p class="mt-3">JRD Foundation, a sanctuary where cows find care and compassion. It was started with the simple idea of helping poor stray cows and treating them with the love and respect they deserve. At JRD Foundation, we are dedicated to rescuing, rehabilitating, and providing a safe haven for injured, ill, and abandoned cows. Our mission is to ensure these gentle creatures receive the medical treatment and care they need to recover and thrive.</p>
         </div>
         <!-- Grid column -->
 
@@ -74,9 +74,9 @@
         <div class="col-md-7 col-lg-8 text-center text-md-start">
           <!-- Copyright -->
           <div class="p-3">
-            © 2020 Copyright:
-            <a class="text-white" href="https://DogHomeFoundation.com/"
-                >DogHomeFoundation.com</a
+            Designed And Developed By : 
+            <a class="text-white" href="https://jrdfoundation.com/"
+                >JRD Foundation</a
               >
           </div>
           <!-- Copyright -->
@@ -86,16 +86,16 @@
         <!-- Grid column -->
         <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
           <!-- Facebook -->
-          <a class="btn btn-outline-light btn-floating m-1"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="btn btn-outline-light btn-floating m-1"><i class="bi bi-facebook"></i></a>
 
           <!-- Twitter -->
-          <a class="btn btn-outline-light btn-floating m-1"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="btn btn-outline-light btn-floating m-1"><i class="bi bi-instagram"></i></a>
 
           <!-- Google -->
-          <a class="btn btn-outline-light btn-floating m-1"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="btn btn-outline-light btn-floating m-1"><i class="bi bi-twitter-x"></i></a>
 
           <!-- Instagram -->
-          <a class="btn btn-outline-light btn-floating m-1"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="btn btn-outline-light btn-floating m-1"><i class="bi bi-youtube"></i></a>
         <!-- Grid column -->
       </div>
     </section>

@@ -51,8 +51,13 @@
                 <!-- <i class="bi bi-telephone-fill me-2"></i> -->
                 Contact Us</a>
             </li>
-            <li class="nav-item d-block">
-              <button type="button" class="btn btn-warning shadow-none">Donate Now</button>
+            <li class="nav-item">
+              <a class="nav-link" href="login">
+                <!-- <i class="bi bi-telephone-fill me-2"></i> -->
+                <button type="button" class="w-100 btn btn-danger shadow-none">Login / Register</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=""><button type="button" class="w-100 btn btn-success shadow-none">Donate Now</button></a>
             </li>
           </ul>
       </div>

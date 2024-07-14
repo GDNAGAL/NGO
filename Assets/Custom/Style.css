@@ -78,6 +78,7 @@ button :hover{
   margin-bottom: 100px;
   border-radius: 10px;
 }
+
 #center-img, img{
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
