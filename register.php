@@ -28,7 +28,8 @@
         <div class="bg-white shadow p-4 rounded-3">
           <form autocomplete="off">
             <h2 class="text-center">REGISTER</h2>
-            <p class="text-color pb-0">Join us today and be a part of our mission to provide essential care and shelter to those in need.</p>
+            <!-- <p class="text-color pb-0">Join us today and be a part of our mission to provide essential care and shelter to those in need.</p> -->
+            <p class="text-color pb-0">We'll never share your personal information with anyone else.</p>
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-3">
