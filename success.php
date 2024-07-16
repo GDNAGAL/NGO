@@ -24,184 +24,54 @@
 <?php require("include/header.php"); ?>
 
 <div class="w-100 text-center" style="background-image: url(Assets/images/banner3.jpg); background-repeat: no-repeat; background-size: cover;">
-  <div class="p-4" style="background-color: rgba(0, 0, 0, 0.5);">
+  <div class="p-4" style="background-color: rgba(0, 0, 0, 0.7);">
     <div>
       <h1 class="text-white p-4 m-4" style="opacity: 1;">Success Stories</h1>
     </div>
   </div>
 </div>
-  <!-- <section class="d-flex">
-    <div class="row row-cols-1 pb-4" id="assets-img">
-      <div class="col-3">
-        <div class="card">
-          <img src="Assets/img-1.png"class="card-img-top" id="card-img" alt="...">
-          <div class="card-body" id="body">
-            <h5 class="card-title">How Sanju was sentenced to death until hanging?</h5>
-            <p class="card-text">In a village near Jodhpur, where tractors have replaced traditional farming methods, a heartbreaking story unfolded. Sanju, a once proud and hardworking bull, became the unluckiest of all bulls.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">
-              Read More 
-              <i class="bi bi-chevron-right"></i></a>
+<div style="background-color: #E6F3FF;">
+    <div class="container pt-4 pb-4">
+      <div style="border-left: 5px solid black;" class="ps-2 mb-4 rounded-3"> 
+        <h3 class="d-flex" >Success Stories</h3>
+        <span class="font-weight-light">Our hurt to healed stories</span>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="bg-white rounded-4 shadow mb-2 p-3 border-bottom border-success border-5">
+            <img src="https://www.doghomefoundation.com/wp-content/uploads/2024/06/thumb.jpg" width="100%" class="rounded-3" alt="">
+            <h5 class="text-dark mt-3">Help Us Save Horses Of Kedarnath Yastra (Animal Abuse)</h5>
+            <p class="text-dark">In a village near Jodhpur, where tractors have replaced traditional farming methods, a heartbreaking story unfolded. Sanju, a once proud and hardworking bull, became the unluckiest of all bulls.</p>
+            <button class="btn btn-outline-success rounded-pill">Read More <i class="bi bi-chevron-compact-right"></i></button>
           </div>
         </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="Assets/img-2.jpg" class="card-img-top" id="card-img" alt="...">
-          <div class="card-body" id="body">
-            <h5 class="card-title">How a thirsty cow became an acid victim</h5>
-            <p class="card-text">In the scorching heat of Rajasthan, where the sun beats down mercilessly, even the hardiest of souls seek respite. But for one gentle cow, seeking a drink of water proved to be a journey of unimaginable pain and suffering.</p>
-             <a href="#" class="btn btn-outline-primary btn-sm">
-              Read More 
-              <i class="bi bi-chevron-right"></i></a>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="bg-white rounded-4 shadow mb-2 p-3 border-bottom border-success border-5">
+            <img src="https://www.doghomefoundation.com/wp-content/uploads/2024/06/thumb.jpg" width="100%" class="rounded-3" alt="">
+            <h5 class="text-dark mt-3">Help Us Save Horses Of Kedarnath Yastra (Animal Abuse)</h5>
+            <p class="text-dark">In a village near Jodhpur, where tractors have replaced traditional farming methods, a heartbreaking story unfolded. Sanju, a once proud and hardworking bull, became the unluckiest of all bulls.</p>
+            <button class="btn btn-outline-success rounded-pill">Read More <i class="bi bi-chevron-compact-right"></i></button>
           </div>
         </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="Assets/img-3.png"  class="card-img-top" id="card-img" alt="...">
-          <div class="card-body"  id="body">
-            <h5 class="card-title">When a baby camel saw her mother leave him alone.</h5>
-            <p class="card-text">While a baby camel was learning to survive with his mother in the selfish world of ours, a tragedy struck one fateful day. A car accident left the mother-son duo stranded, abandoned, and fighting for their lives.</p>
-             <a href="#" class="btn btn-outline-primary btn-sm">
-              Read More 
-              <i class="bi bi-chevron-right"></i></a>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="bg-white rounded-4 shadow mb-2 p-3 border-bottom border-success border-5">
+            <img src="https://www.doghomefoundation.com/wp-content/uploads/2024/06/thumb.jpg" width="100%" class="rounded-3" alt="">
+            <h5 class="text-dark mt-3">Help Us Save Horses Of Kedarnath Yastra (Animal Abuse)</h5>
+            <p class="text-dark">In a village near Jodhpur, where tractors have replaced traditional farming methods, a heartbreaking story unfolded. Sanju, a once proud and hardworking bull, became the unluckiest of all bulls.</p>
+            <button class="btn btn-outline-success rounded-pill">Read More <i class="bi bi-chevron-compact-right"></i></button>
           </div>
         </div>
-      </div>
-      <div class="col-lg-3 mb-0 pb-0 pe-3">
-        <div class="sidebar-header">
-            <h4>Recent Success Stories</h4>
-        </div>
-        <div class="cmn-sidebar bg-white border p-3">
-        <div class="media">
-        <div class="thumb-img d-flex">
-            <img class="me-3" src="Assets/img-1.png" alt="" width="60" height="60">
-        <div class="media-body">
-          <a href="#" class="stretched-link fs-6 ">How Sanju was sentenced to death until hanging?</a><br>
-            <span>Thu May 2024</span><hr>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="bg-white rounded-4 shadow mb-2 p-3 border-bottom border-success border-5">
+            <img src="https://www.doghomefoundation.com/wp-content/uploads/2024/06/thumb.jpg" width="100%" class="rounded-3" alt="">
+            <h5 class="text-dark mt-3">Help Us Save Horses Of Kedarnath Yastra (Animal Abuse)</h5>
+            <p class="text-dark">In a village near Jodhpur, where tractors have replaced traditional farming methods, a heartbreaking story unfolded. Sanju, a once proud and hardworking bull, became the unluckiest of all bulls.</p>
+            <button class="btn btn-outline-success rounded-pill">Read More <i class="bi bi-chevron-compact-right"></i></button>
+          </div>
         </div>
       </div>
     </div>
-    <div>
-      <div class="media">
-        <div class="thumb-img d-flex">
-            <img class="me-3" src="Assets/img-2.jpg" alt="" width="60" height="60">
-        <div class="media-body">
-            <a href="#" class="stretched-link fs-6">How a thirsty cow became an acid victim.</a><br>
-            <span>Fri May 2024</span><hr>
-        </div>
-      </div>
-      <div class="media">
-        <div class="thumb-img d-flex">
-            <img class="me-3" class="" src="Assets/img-3.png" alt="" width="60" height="60">
-        <div class="media-body">
-            <a href="#" class="stretched-link fs-6">When a baby camel saw her mother leave him alone.</a><br>
-            <span>Mon May 2024</span><hr>
-        </div>
-      </div>
-    </div>
-    <div class="media">
-      <div class="thumb-img d-flex">
-          <img class="me-3" src="Assets/img-5.jpg" alt="" width="60" height="60">
-      <div class="media-body">
-          <a href="#" class="stretched-link fs-6">Story of Kansa, the bull whose horns became his enemy.</a><br>
-          <span>Sun Mar 2024</span>
-      </div>
-    </div>     
-  </section>
-  <section class="card-header">
-    <div class="row row-cols-1 pb-4" id="assets-img">
-      <div class="col-3">
-        <div class="card">
-          <img src="Assets/img-5.jpg"class="card-img-top" id="card-img" alt="...">
-          <div class="card-body" id="body">
-            <h5 class="card-title">How Sanju was sentenced to death until hanging?</h5>
-            <p class="card-text">In a village near Jodhpur, where tractors have replaced traditional farming methods, a heartbreaking story unfolded. Sanju, a once proud and hardworking bull, became the unluckiest of all bulls.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">
-              Read More 
-              <i class="bi bi-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="Assets/img-6.png" class="card-img-top" id="card-img" alt="...">
-          <div class="card-body" id="body">
-            <h5 class="card-title">How a thirsty cow became an acid victim</h5>
-            <p class="card-text">In the scorching heat of Rajasthan, where the sun beats down mercilessly, even the hardiest of souls seek respite. But for one gentle cow, seeking a drink of water proved to be a journey of unimaginable pain and suffering.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">
-              Read More 
-              <i class="bi bi-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="Assets/img-7.png"  class="card-img-top" id="card-img" alt="...">
-          <div class="card-body"  id="body">
-            <h5 class="card-title">When a baby camel saw her mother leave him alone.</h5>
-            <p class="card-text">While a baby camel was learning to survive with his mother in the selfish world of ours, a tragedy struck one fateful day. A car accident left the mother-son duo stranded, abandoned, and fighting for their lives.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">
-              Read More 
-              <i class="bi bi-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-  </section>
-  <section class="card-header">
-    <div class="row row-cols-1 pb-4" id="assets-img">
-      <div class="col-3">
-        <div class="card">
-          <img src="Assets/img-8.png"class="card-img-top" id="card-img" alt="...">
-          <div class="card-body" id="body">
-            <h5 class="card-title">How Sanju was sentenced to death until hanging?</h5>
-            <p class="card-text">In a village near Jodhpur, where tractors have replaced traditional farming methods, a heartbreaking story unfolded. Sanju, a once proud and hardworking bull, became the unluckiest of all bulls.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">
-              Read More 
-              <i class="bi bi-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="Assets/img-9.jpg" class="card-img-top" id="card-img" alt="...">
-          <div class="card-body" id="body">
-            <h5 class="card-title">How a thirsty cow became an acid victim</h5>
-            <p class="card-text">In the scorching heat of Rajasthan, where the sun beats down mercilessly, even the hardiest of souls seek respite. But for one gentle cow, seeking a drink of water proved to be a journey of unimaginable pain and suffering.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">
-              Read More 
-              <i class="bi bi-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="Assets/img-10.png"  class="card-img-top" id="card-img" alt="...">
-          <div class="card-body"  id="body">
-            <h5 class="card-title">When a baby camel saw her mother leave him alone.</h5>
-            <p class="card-text">While a baby camel was learning to survive with his mother in the selfish world of ours, a tragedy struck one fateful day. A car accident left the mother-son duo stranded, abandoned, and fighting for their lives.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">
-              Read More 
-              <i class="bi bi-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-  </section>
-  <section class="card-header">
-    <div class="row row-cols-1 pb-4" id="assets-img">
-      <div class="col-3">
-        <div class="card">
-          <img src="Assets/img-11.png"class="card-img-top" id="card-img" alt="...">
-          <div class="card-body" id="body">
-            <h5 class="card-title">How Sanju was sentenced to death until hanging?</h5>
-            <p class="card-text">In a village near Jodhpur, where tractors have replaced traditional farming methods, a heartbreaking story unfolded. Sanju, a once proud and hardworking bull, became the unluckiest of all bulls.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">
-              Read More 
-              <i class="bi bi-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-  </section> -->
+  </div>
   <?php require("include/footer.php"); ?>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>                 
     </body>

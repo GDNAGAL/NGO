@@ -1,3 +1,15 @@
+<div class="bg-customp text-white text-center p-4">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-8 pb-2 pt-2">
+        <p style="font-size:28px;" class="m-0">The Best Way to Make a Difference in the Lives of Others</p>
+      </div>
+      <div class="col-md-4 pb-2 pt-2">
+        <button class="btn btn-success btn-lg rounded-pill ps-4 pe-4">Donate Now</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Footer -->
 <footer class="text-center text-lg-start text-white" style="width: 100%; background-color: #45526e">
   <!-- Grid container -->
