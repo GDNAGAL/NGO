@@ -15,7 +15,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white text-center">
+                        <a href="aboutAdd" class="nav-link text-white text-center">
                             <i class="bi bi-person-bounding-box" style="font-size:25px"></i>
                             <p class="mb-0" style="font-size:13px">About Us</p>
                         </a>
