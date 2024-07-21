@@ -36,7 +36,7 @@
        </div>
       </div>
       <div class="carousel-item">
-        <img src="Assets/images/banner-2-1920-x-900.jpg" class="d-block w-5" width="100%" alt="...">
+        <img src="Assets/images/a1.jpeg" class="d-block w-5" width="100%" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <span class="h6">Help Them Today</span>
           <h1>Street Animals Need Our Protection.</h1>
@@ -69,11 +69,12 @@
           <h3 class="d-flex" >About Us</h3>
           <span class="font-weight-light">Who we are?</span>
         </div>
-        <p class="mt-3">JRD Foundation is a non-profit NGO dedicated to the care and rehabilitation of injured and vulnerable animals. Founded with a mission to be a beacon of hope for animals in distress, we specialize in rescuing, treating, and providing shelter for animals that have been injured, ill, or victims of accidents. Our team of compassionate volunteers and skilled veterinarians work tirelessly to ensure that every animal receives the medical attention and care they need to recover and thrive.</p>
+        <p class="mt-3" style="text-align:justify">JRD Foundation is a non-profit NGO dedicated to the care and rehabilitation of injured and vulnerable animals. Founded with a mission to be a beacon of hope for animals in distress, we specialize in rescuing, treating, and providing shelter for animals that have been injured, ill, or victims of accidents. Our team of compassionate volunteers and skilled veterinarians work tirelessly to ensure that every animal receives the medical attention and care they need to recover and thrive.</p>
         <button type="button" class="btn btn-primary rounded-pill mb-3">More About Us <i class="bi bi-chevron-compact-right"></i></button>
       </div>
       <div class="col-md-6">
-        <iframe width="100%" height="300" class="rounded-3" src="https://www.youtube.com/embed/Vn_iaoK6eE0?si=GphKcCc4W6EhNQjV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- <iframe width="100%" height="300" class="rounded-3" src="https://www.youtube.com/embed/Vn_iaoK6eE0?si=GphKcCc4W6EhNQjV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+        <iframe width="100%" height="300" class="rounded-3" src="https://www.youtube.com/embed/MSAVvwS9L2w?si=1qSw24dHt9u6vViq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -94,13 +95,13 @@
       <div class="col-sm-3 col-6">
         <div class="bg-secondary rounded-3 p-2 text-center mb-3 shadow-sm">
           <h1 class="text-customp fw-bold p-3">180 +</h1>
-          <h4>Successful Adoption</h4>
+          <h4>Happy Supporters</h4>
         </div>
       </div>
       <div class="col-sm-3 col-6">
         <div class="bg-secondary rounded-3 p-2 text-center mb-3 shadow-sm">
-          <h1 class="text-customp fw-bold p-3">100M +</h1>
-          <h4>Donation Completed</h4>
+          <h1 class="text-customp fw-bold p-3">10 +</h1>
+          <h4>Volunteers Engaged</h4>
         </div>
       </div>
     </div>
@@ -174,19 +175,19 @@
               <h3 class="d-flex" >Donations</h3>
               <span class="font-weight-light">Help, Donate & Fundraise</span>
             </div>
-            <p class="mt-3 text-white fw-bold">Your generous donation plays a crucial role in our mission to provide essential medical services, conduct rescue operations, and offer permanent shelter to those who are voiceless and vulnerable. With your support, we can ensure that they receive the compassionate care and attention they urgently require to thrive and recover.</p>
+            <p class="mt-3 text-white fw-bold" style="text-align:justify">Your generous donation is vital to our mission of providing essential medical services, conducting rescue operations, and offering permanent shelter to those who are voiceless and vulnerable. With your support, we can ensure they receive the compassionate care and attention they urgently need to thrive and recover.</p>
             <button type="button" class="btn btn-primary rounded-pill mb-2"><i class="bi bi-heart me-2"></i> Donate Now</button>
           </div>
           <div class="col-md-8">
             <div class="rounded-3 bg-white">
               <div class="row">
                 <div class="col-md-6">
-                  <img width="100%" height="100%" src="https://www.doghomefoundation.com/wp-content/uploads/2023/06/0J0A5957-scaled.jpg" alt="">
+                  <img width="100%" height="100%" src="Assets/Images/a2.jpeg" alt="">
                 </div>
                 <div class="col-md-6">
                   <div class="pt-3 pb-3 pe-2 ps-2">
                     <h4>Cows</h4>
-                    <p>We urgently seek your support to aid accidental stray cows in dire need. These gentle creatures, abandoned or left to wander aimlessly, face immense hardship without shelter, sustenance, or medical attention. Your donation can provide critical care, nutritious food, and safe shelters to these vulnerable cows, offering them a chance at a dignified life. Every contribution, no matter the size, makes a significant impact on their well-being. With your compassion and generosity, we can alleviate their suffering and create a compassionate society that values all living beings. Please donate today to make a difference in the lives of these innocent stray cows.</p>
+                    <p style="text-align:justify" class="pe-2">We urgently need your support to aid a cow who has been severely injured in a car accident, suffering from a front leg injury that requires immediate medical attention. Your donation can provide the emergency treatment needed to address her injury, alleviate pain, and prevent further complications. Additionally, it will support her rehabilitation with ongoing care and therapy to ensure a full recovery, as well as nutritious food to aid in her healing and a safe shelter where she can rest and regain her strength without fear. Every contribution, no matter how small, can make a life-saving difference. With your compassion and generosity, we can offer this injured cow a chance at a dignified and healthy life. Please donate today to help us provide the urgent care she needs and alleviate her suffering. Thank you for your support.</p>
                     <button class="btn btn-outline-primary rounded-pill"><i class="bi bi-heart me-2"></i>Donate Now</button>
                   </div>
                 </div>
@@ -239,7 +240,7 @@
         </div>
       </div>
       <div class="text-center m-4 mb-4">
-        <button class="btn btn-success rounded-pill mt-4">View All Stories <i class="bi bi-chevron-compact-right"></i></button>
+        <a href="success"><button class="btn btn-success rounded-pill mt-4">View All Stories <i class="bi bi-chevron-compact-right"></i></button></a>
       </div>
     </div>
   </div>
