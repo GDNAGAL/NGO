@@ -16,7 +16,7 @@
     <section class="">
       <div class="row">
         <div class=" col-lg-3 col-xl-3 mx-auto mt-3">
-          <img src="Assets/images/logo.png" width="100" alt="">
+          <img src="Assets/images/lgg.png" width="100" alt="">
           <p class="mt-3" style="text-align:justify">JRD Foundation,<br>A sanctuary where cows find care and compassion. It was started with the simple idea of helping poor stray cows and treating them with the love and respect they deserve. At JRD Foundation, we are dedicated to rescuing, rehabilitating, and providing a safe haven for injured, ill, and abandoned cows. Our mission is to ensure these gentle creatures receive the medical treatment and care they need to recover and thrive.</p>
         </div>
 

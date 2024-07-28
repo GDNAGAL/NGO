@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-customp">
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="Assets/images/logo.png" width="50" height="50"></a>
+      <a class="navbar-brand" href="#"><img src="Assets/images/lgg.png" width="50" height="50"></a>
       <a class="navbar-brand" href="#">JRD Foundation</a>
       <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -57,7 +57,7 @@
                 <button type="button" class="w-100 btn btn-danger shadow-none">Login / Register</button></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=""><button type="button" class="w-100 btn btn-success shadow-none">Donate Now</button></a>
+              <a class="nav-link" href="products"><button type="button" class="w-100 btn btn-success shadow-none">Donate Now</button></a>
             </li>
           </ul>
       </div>
