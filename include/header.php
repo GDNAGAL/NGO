@@ -42,6 +42,11 @@
               Success Stories</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="gallery">
+                <!-- <i class="bi bi-newspaper me-1"></i> -->
+                Gallery</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#">
                 <!-- <i class="bi bi-newspaper me-1"></i> -->
                 Blog</a>
