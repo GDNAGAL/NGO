@@ -22,7 +22,7 @@
     <meta property="og:title" content="JRD Foundation - Gallery" />
     <meta property="og:type" content="website" />
     <!-- <meta property="og:url" content="https://jrdfoundation.com/gallery" /> -->
-    <meta property="og:image" content="Assets/images/gallery/A29.jpeg" />
+    <meta property="og:image" content="https://jrdfoundation.com/Assets/images/gallery/A29.jpeg" />
     <meta property="og:description" content="Explore the gallery of our JRD Foundation, showcasing the work we do and the events we organize to support our cause." />
     <meta property="og:site_name" content="JRD Foundation" />
     <meta property="og:locale" content="en_US" />
