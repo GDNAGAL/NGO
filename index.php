@@ -29,28 +29,28 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="Assets/images/Untitled-4.jpg" class="d-block w-5" width="100%" alt="...">
+        <img src="Assets/images/c1.jpeg" class="d-block w-5" width="100%" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h1>Your Contribution Is Important</h1>
           <button type="button" class="btn btn-info">Donete naw</button>
        </div>
       </div>
       <div class="carousel-item">
-        <img src="Assets/images/a1.jpeg" class="d-block w-5" width="100%" alt="...">
+        <img src="Assets/images/c2.jpeg" class="d-block w-5" width="100%" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <span class="h6">Help Them Today</span>
           <h1>Street Animals Need Our Protection.</h1>
           <button type="button" class="btn btn-info">Donete naw</button>
         </div>
       </div>
-      <div class="carousel-item">
+      <!-- <div class="carousel-item">
         <img src="Assets/images/Untitled-3.jpg" class="d-block w-5" width="100%"  alt="...">
         <div class="carousel-caption d-none d-md-block">
           <span class="h6">Small Effort Make Big Change</span>
           <h1>Your Support Makes Us Save Precious Lives</h1>
           <button type="button" class="btn btn-info">Donete naw</button>
         </div>
-      </div>
+      </div> -->
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -64,7 +64,7 @@
   </div>
   <div class="container pt-4 mt-4">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-md-6">
         <div style="border-left: 5px solid black;" class="ps-2 rounded-3"> 
           <h3 class="d-flex" >About Us</h3>
           <span class="font-weight-light">Who we are?</span>
@@ -170,7 +170,7 @@
     <div style="background-color: rgba(0, 0, 0, 0.7);"> 
       <div class="container pt-4 pb-4">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 mb-3">
             <div style="border-left: 5px solid white;" class="ps-2 mb-4 text-white rounded-3"> 
               <h3 class="d-flex" >Donations</h3>
               <span class="font-weight-light">Help, Donate & Fundraise</span>
