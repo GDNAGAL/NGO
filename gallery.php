@@ -22,7 +22,7 @@
     <meta property="og:title" content="JRD Foundation - Gallery" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jrdfoundation.com/gallery" />
-    <meta property="og:image" content="/Assets/images/gallery/a29.jpeg" />
+    <meta property="og:image" content="/Assets/images/gallery/A29.jpeg" />
     <meta property="og:description" content="Explore the gallery of our JRD Foundation, showcasing the work we do and the events we organize to support our cause." />
     <meta property="og:site_name" content="JRD Foundation" />
     <meta property="og:locale" content="en_US" />
@@ -49,103 +49,103 @@
            -->
            <div class="gallery">
             <div class="image-container">
-              <a href="Assets/images/gallery/a1.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a1.jpeg"></a>
+              <a href="Assets/images/gallery/A1.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A1.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a2.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a2.jpeg"></a>
+              <a href="Assets/images/gallery/A2.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A2.jpeg"></a>
             </div>
             <div class="image-container tall">
-              <a href="Assets/images/gallery/a3.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a3.jpeg"></a>
+              <a href="Assets/images/gallery/A3.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A3.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a4.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a4.jpeg"></a>
+              <a href="Assets/images/gallery/A4.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A4.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a5.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a5.jpeg"></a>
+              <a href="Assets/images/gallery/A5.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A5.jpeg"></a>
             </div>
             <div class="image-container tall">
-              <a href="Assets/images/gallery/a6.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a6.jpeg"></a>
+              <a href="Assets/images/gallery/A6.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A6.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a7.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a7.jpeg"></a>
+              <a href="Assets/images/gallery/A7.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A7.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a8.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a8.jpeg"></a>
+              <a href="Assets/images/gallery/A8.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A8.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a9.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a9.jpeg"></a>
+              <a href="Assets/images/gallery/A9.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A9.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a10.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a10.jpeg"></a>
+              <a href="Assets/images/gallery/A10.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A10.jpeg"></a>
             </div>
             <div class="image-container tall">
-              <a href="Assets/images/gallery/a11.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a11.jpeg"></a>
+              <a href="Assets/images/gallery/A11.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A11.jpeg"></a>
             </div>
             <div class="image-container tall">
-              <a href="Assets/images/gallery/a12.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a12.jpeg"></a>
+              <a href="Assets/images/gallery/A12.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A12.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a13.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a13.jpeg"></a>
+              <a href="Assets/images/gallery/A13.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A13.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a14.jpeg" data-lightbox="gg">  <img src="Assets/images/gallery/a14.jpeg"></a>
+              <a href="Assets/images/gallery/A14.jpeg" data-lightbox="gg">  <img src="Assets/images/gallery/A14.jpeg"></a>
             </div>
             <div class="image-container tall">
-              <a href="Assets/images/gallery/a15.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a15.jpeg"></a>
+              <a href="Assets/images/gallery/A15.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A15.jpeg"></a>
             </div>
             <div class="image-container tall">
-              <a href="Assets/images/gallery/a16.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a16.jpeg"></a>
+              <a href="Assets/images/gallery/A16.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A16.jpeg"></a>
             </div>
             <div class="grid-item">
-              <a href="Assets/images/gallery/a17.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a17.jpeg"></a>
+              <a href="Assets/images/gallery/A17.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A17.jpeg"></a>
             </div>
             <div class="image-container tall">
-              <a href="Assets/images/gallery/a18.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a18.jpeg"></a>
+              <a href="Assets/images/gallery/A18.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A18.jpeg"></a>
             </div>
             <div class="image-container tall">
-              <a href="Assets/images/gallery/a19.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a19.jpeg"></a>
+              <a href="Assets/images/gallery/A19.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A19.jpeg"></a>
             </div>
             <div class="image-container tall">
-              <a href="Assets/images/gallery/a20.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a20.jpeg"></a>
+              <a href="Assets/images/gallery/A20.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A20.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a21.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a21.jpeg"></a>
+              <a href="Assets/images/gallery/A21.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A21.jpeg"></a>
             </div>
             <div class="image-container tall">
-              <a href="Assets/images/gallery/a22.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a22.jpeg"></a>
+              <a href="Assets/images/gallery/A22.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A22.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a23.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a23.jpeg"></a>
+              <a href="Assets/images/gallery/A23.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A23.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a24.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a24.jpeg"></a>
+              <a href="Assets/images/gallery/A24.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A24.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a25.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a25.jpeg"></a>
+              <a href="Assets/images/gallery/A25.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A25.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a26.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a26.jpeg"></a>
+              <a href="Assets/images/gallery/A26.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A26.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a27.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a27.jpeg"></a>
+              <a href="Assets/images/gallery/A27.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A27.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a28.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a28.jpeg"></a>
+              <a href="Assets/images/gallery/A28.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A28.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a29.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a29.jpeg"></a>
+              <a href="Assets/images/gallery/A29.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A29.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a30.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a30.jpeg"></a>
+              <a href="Assets/images/gallery/A30.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A30.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a31.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a31.jpeg"></a>
+              <a href="Assets/images/gallery/A31.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A31.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a32.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a32.jpeg"></a>
+              <a href="Assets/images/gallery/A32.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A32.jpeg"></a>
             </div>
             <div class="image-container">
-              <a href="Assets/images/gallery/a33.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/a33.jpeg"></a>
+              <a href="Assets/images/gallery/A33.jpeg" data-lightbox="gg"><img src="Assets/images/gallery/A33.jpeg"></a>
             </div>
         </div>
       </div>
