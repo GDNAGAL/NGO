@@ -131,47 +131,47 @@ $conn->close();
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label for="currentPassword" class="form-label">Enter Title</label>
-                    <input type="text" class="form-control" id="currentPassword" aria-describedby="emailHelp" name="currentpassword" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
+                    <label for="title" class="form-label">Enter Title</label>
+                    <input type="text" class="form-control" id="title" aria-describedby="emailHelp" name="title" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label for="currentPassword" class="form-label">Enter Description</label>
-                    <input type="text" class="form-control" id="currentPassword" aria-describedby="emailHelp" name="currentpassword" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-3">
-                    <label for="currentPassword" class="form-label">Enter Goal Amount</label>
-                    <input type="text" class="form-control" id="currentPassword" aria-describedby="emailHelp" name="currentpassword" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="mb-3">
-                    <label for="currentPassword" class="form-label">Upload Banner</label>
-                    <input type="file" class="form-control" id="currentPassword" aria-describedby="emailHelp" name="currentpassword" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
+                    <label for="desc" class="form-label">Enter Description</label>
+                    <input type="text" class="form-control" id="desc" aria-describedby="emailHelp" name="description" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label for="currentPassword" class="form-label">Select Start Date</label>
-                    <input type="date" class="form-control" id="currentPassword" aria-describedby="emailHelp" name="currentpassword" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
+                    <label for="amount" class="form-label">Enter Goal Amount</label>
+                    <input type="number" class="form-control" id="amount" aria-describedby="emailHelp" name="goalamount" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label for="currentPassword" class="form-label">Select End Date</label>
-                    <input type="date" class="form-control" id="currentPassword" aria-describedby="emailHelp" name="currentpassword" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
+                    <label for="banner" class="form-label">Upload Banner</label>
+                    <input type="file" class="form-control" id="banner" aria-describedby="emailHelp" name="banner" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="startdate" class="form-label">Select Start Date</label>
+                    <input type="date" class="form-control" id="startdate" aria-describedby="emailHelp" name="startdate" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="enddate" class="form-label">Select End Date</label>
+                    <input type="date" class="form-control" id="enddate" aria-describedby="emailHelp" name="enddate" value="<?php echo isset($currentpassword) ? htmlspecialchars($currentpassword) : ''; ?>">
                   </div>
                 </div>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="acceptterms">
                 <label class="form-check-label" for="flexCheckDefault">
                   I Agree <a href="">Terms and Conditions.</a>
                 </label>

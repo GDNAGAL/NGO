@@ -12,7 +12,7 @@
 </div>
 
 <footer class="text-center text-lg-start text-white" style="width: 100%; background-color: #45526e">
-  <div class="container-fluid">
+  <div class="container">
     <section class="">
       <div class="row">
         <div class=" col-lg-4 col-xl-4 mx-auto mt-3">
@@ -48,13 +48,13 @@
 
     <section class="p-3 pt-0">
       <div class="row d-flex align-items-center">
-        <div class="col-md-7 col-lg-8 text-center text-md-start">
-          <div class="p-3">
+        <div class="col-md-7 col-lg-8 text-center text-md-start ps-0">
+          <div class="p-3 ps-0">
             Designed And Developed By : 
             <a class="text-white" href="https://jrdfoundation.com/">JRD Foundation</a>
           </div>
         </div>
-        <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+        <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end pe-0">
           <a href="https://www.facebook.com/jagdishkumawat.kumawat" target="_blank" class="btn btn-outline-light btn-floating m-1 shadow-none"><i class="bi bi-facebook"></i></a>
           <a href="https://www.instagram.com/j.d_bhai_007_bkn" target="_blank" class="btn btn-outline-light btn-floating m-1 shadow-none"><i class="bi bi-instagram"></i></a>
           <a href="#" class="btn btn-outline-light btn-floating m-1 shadow-none"><i class="bi bi-twitter-x"></i></a>

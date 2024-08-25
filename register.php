@@ -73,7 +73,13 @@ if (isset($_POST['register'])) {
                         $state = '';
                         $city = '';
                         //header("Location: " . $_SERVER['PHP_SELF']);
-                        header("Location: Dashboard");
+                        if (isset($_SESSION['return_url'])) {
+                          $redirectUrl = $_SESSION['return_url'];
+                          unset($_SESSION['return_url']);
+                          header("Location: " . $redirectUrl);
+                        } else {
+                            header("Location: Dashboard"); 
+                        }
                         exit;
                     } else {
                         $errorMessages = "Error: " . $stmt->error . "<br>";
