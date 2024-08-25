@@ -103,7 +103,7 @@ $conn->close();
   <div class="container pt-4 pb-4">
   <?php require("include/sidebar.php"); ?>
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-8 mb-3">
         <div class="bg-white shadow p-4 rounded-3">
           <form method="POST" action="">
             <h4>Create Campaign</h4>
