@@ -124,7 +124,7 @@ $conn->close();
             </div>
             <div class="mb-3">
               <label for="newPassword" class="form-label">Set New Password</label>
-              <input type="password" class="form-control" id="newPassword" name="password" value="<?php echo isset($password) ? htmlspecialchars($password) : ''; ?>">
+              <input type="password" class="form-control" id="newPassword" name="password" >
             </div>
             <div class="mb-3">
               <label for="cnewPassword" class="form-label">Confirm New Password</label>
