@@ -42,8 +42,8 @@ if (isset($_POST['register'])) {
                 $errorMessages = "A user with this email or mobile number already exists.<br>";
             } else {
                 // Generate and hash the password
-                $password = generateRandomPassword(8);
-                $encPassword = password_hash($password, PASSWORD_BCRYPT);
+                $password = mt_rand(100000, 999999);
+                $encPassword = md5($password);
                 
                 // Insert the new user using a prepared statement
                 $query = "INSERT INTO `users` (`FullName`, `Email`, `MobileNo`, `DOB`, `AddressLine1`, `PINCode`, `State`, `City`, `Password`, `isAdmin`, `CreatedAt`) 
@@ -55,6 +55,13 @@ if (isset($_POST['register'])) {
                     $stmt->bind_param("sssssssss", $fullname, $email, $mobile, $dob, $addressline1, $pincode, $state, $city, $encPassword);
                     
                     if ($stmt->execute()) {
+                        $lastInsertId = mysqli_insert_id($conn);
+                        //Set Session Variable
+                        $_SESSION['loggedin'] = true;
+                        $_SESSION['user_id'] = $lastInsertId;
+                        $_SESSION['fullname'] = $fullname;
+
+                        setcookie("Password", $password, time() + (86400 * 30), "/");
                         // Reset the form after successful submission
                         echo "<script>document.getElementById('registrationForm').reset();</script>";
                         $fullname = '';
@@ -66,8 +73,6 @@ if (isset($_POST['register'])) {
                         $state = '';
                         $city = '';
                         //header("Location: " . $_SERVER['PHP_SELF']);
-                        $_SESSION['loggedin'] = true;
-                        $_SESSION['userEmail'] = $email;
                         header("Location: Dashboard");
                         exit;
                     } else {
@@ -122,7 +127,7 @@ function generateRandomPassword($length = 12) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="contact.html">
+
 
     <style>
 
@@ -141,7 +146,7 @@ function generateRandomPassword($length = 12) {
             <p class="text-color pb-0">We'll never share your personal information with anyone else.</p>
             <!-- Display Error Messages -->
             <?php if (!empty($errorMessages)): ?>
-                <div style="color:red;">
+                <div class="alert alert-danger">
                     <?php echo $errorMessages; ?>
                 </div>
             <?php endif; ?>
@@ -149,13 +154,13 @@ function generateRandomPassword($length = 12) {
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="FullName" class="form-label">Full Name</label>
-                  <input type="text" class="form-control" id="FullName" value="<?php echo $fullname; ?>" name="fullname">
+                  <input type="text" class="form-control" id="FullName" value="<?php echo htmlspecialchars($fullname); ?>" name="fullname">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email Address</label>
-                  <input type="email" class="form-control" id="email" value="<?php echo $email; ?>" name="email">
+                  <input type="email" class="form-control" id="email" value="<?php echo htmlspecialchars($email); ?>" name="email">
                 </div>
               </div>
             </div>
@@ -163,7 +168,7 @@ function generateRandomPassword($length = 12) {
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="mobile" class="form-label">Mobile No.</label>
-                  <input type="text" class="form-control" id="mobile" value="<?php echo $mobile; ?>" name="mobile">
+                  <input type="text" class="form-control" id="mobile" value="<?php echo htmlspecialchars($mobile); ?>" name="mobile">
                 </div>
               </div>
               <div class="col-md-6">
@@ -177,13 +182,13 @@ function generateRandomPassword($length = 12) {
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="addressline1" class="form-label">Address Line 1</label>
-                  <input type="text" class="form-control" id="addressline1" value="<?php echo $addressline1; ?>" name="addressline1">
+                  <input type="text" class="form-control" id="addressline1" value="<?php echo htmlspecialchars($addressline1); ?>" name="addressline1">
                 </div>
               </div>
               <div class="col-md-6">
               <div class="mb-3">
                   <label for="pincode" class="form-label">Pin Code</label>
-                  <input type="text" class="form-control" id="pincode" value="<?php echo $pincode; ?>" name="pincode">
+                  <input type="text" class="form-control" id="pincode" value="<?php echo htmlspecialchars($pincode); ?>" name="pincode">
                 </div>
               </div>
             </div>
@@ -191,13 +196,13 @@ function generateRandomPassword($length = 12) {
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="state" class="form-label">State</label>
-                  <input type="text" class="form-control" id="state" value="<?php echo $state; ?>" name="state">
+                  <input type="text" class="form-control" id="state" value="<?php echo htmlspecialchars($state); ?>" name="state">
                 </div>
               </div>
               <div class="col-md-6">
               <div class="mb-3">
                   <label for="city" class="form-label">City</label>
-                  <input type="text" class="form-control" id="city" value="<?php echo $city; ?>" name="city">
+                  <input type="text" class="form-control" id="city" value="<?php echo htmlspecialchars($city); ?>" name="city">
                 </div>
               </div>
             </div>

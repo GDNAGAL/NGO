@@ -13,7 +13,9 @@ if (!isset($_SESSION['loggedin'])) {
         exit;
     }
 }
-$loginUser = $_SESSION['userEmail'];
+require("dbconn.php");
+$loginUserID = $_SESSION['user_id'];
+$loginUserName = $_SESSION['fullname'];
 // Set session timeout duration (optional)
 $inactive = 600; // 10 minutes of inactivity
 

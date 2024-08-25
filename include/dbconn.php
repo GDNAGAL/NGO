@@ -1,9 +1,9 @@
 <?php
 // Database credentials
-$host = 'localhost';    // Database host (usually localhost)
-$dbname = 'ngo'; // Name of your database
-$username = 'root';    // Database username
-$password = '';    // Database password
+$host = '154.41.233.103';  
+$dbname = 'u664437076_ngo'; 
+$username = 'u664437076_ngo';   
+$password = 'Tt8]H;eOx56';  
 
 // Create a new mysqli connection
 $conn = new mysqli($host, $username, $password, $dbname);

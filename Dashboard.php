@@ -19,32 +19,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 
     <style>
-
+        .no-wrap {
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
 <?php require("include/header.php"); ?>
 <div style="background-color: #E6F3FF;">
   <div class="container-fluid pt-4 pb-4">
+    <?php require("include/sidebar.php"); ?>
+    <div class="bg-white shadow p-4 rounded-3 mb-3">
+      <h4>Welcome, <?php echo $loginUserName;?></h4>
+    </div>
     <div class="bg-white shadow p-4 rounded-3">
-      <?php echo $loginUser;?>
-      <!-- <form method="POST" action="">
-        <h2 class="text-center">LOG IN</h2>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email Address Or Mobile</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <div class="table-responsive">
+        <div class="text-end">
+          <button class="btn btn-primary shadow-none"><i class="bi bi-patch-plus me-2"></i>Create Fundraising Campaign</button>
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" name="login" class="btn btn-primary">Log In</button>
-        <a class="ms-2 text-danger" href="">Forgot Password ?</a>
-        <p class="mt-3 mb-0">
-          Don't have an account yet? <a class="text-danger" href="register"> Register Here</a>
-        </p>
-      </form> -->
+        <table class="table table-hover caption-top">
+        <caption><b>Your Fundraising Campaign</b></caption>
+          <thead>
+            <tr>
+              <th scope="col" class="no-wrap">Campaign ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Goal</th>
+              <th scope="col">Raised</th>
+              <th scope="col" class="no-wrap">Raised %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#176</td>
+              <td>Help Us Save Horses Of Kedarnath Yastra (Animal Abuse)</td>
+              <td>The sacred Char Dham Yatra, a revered pilgrimage undertaken by devotees across India</td>
+              <td class="no-wrap">₹ 10,00,000.00</td>
+              <td class="no-wrap">₹ 10,000.00</td>
+              <td class="text-center"><span class="badge rounded-pill bg-success">25%</span></td>
+            </tr>
+            <tr>
+              <td>#176</td>
+              <td>Help Us Save Horses Of Kedarnath Yastra (Animal Abuse)</td>
+              <td>The sacred Char Dham Yatra, a revered pilgrimage undertaken by devotees across India</td>
+              <td class="no-wrap">₹ 10,00,000.00</td>
+              <td class="no-wrap">₹ 10,000.00</td>
+              <td class="text-center"><span class="badge rounded-pill bg-success">25%</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div> 
