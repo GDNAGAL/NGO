@@ -100,7 +100,7 @@ $conn->close();
 <body>
 <?php require("include/header.php"); ?>
 <div style="background-color: #E6F3FF;">
-  <div class="container-fluid pt-4 pb-4">
+  <div class="container pt-4 pb-4">
   <?php require("include/sidebar.php"); ?>
     <div class="bg-white shadow p-4 rounded-3">
       <div class="col-md-4">
@@ -130,7 +130,7 @@ $conn->close();
               <label for="cnewPassword" class="form-label">Confirm New Password</label>
               <input type="text" class="form-control" id="cnewPassword" name="confirmpassword" value="<?php echo isset($confirmpassword) ? htmlspecialchars($confirmpassword) : ''; ?>">
             </div>
-            <button type="submit" name="changepassword" class="btn btn-primary">Change Password</button>
+            <button type="submit" name="changepassword" class="btn btn-primary shadow-none">Change Password</button>
           </form>
         </div>
     </div>

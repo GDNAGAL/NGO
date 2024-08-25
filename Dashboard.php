@@ -27,7 +27,7 @@
 <body>
 <?php require("include/header.php"); ?>
 <div style="background-color: #E6F3FF;">
-  <div class="container-fluid pt-4 pb-4">
+  <div class="container pt-4 pb-4">
     <?php require("include/sidebar.php"); ?>
     <div class="bg-white shadow p-4 rounded-3 mb-3">
       <h4>Welcome, <?php echo $loginUserName;?></h4>
@@ -35,7 +35,7 @@
     <div class="bg-white shadow p-4 rounded-3">
       <div class="table-responsive">
         <div class="text-end">
-          <button class="btn btn-primary shadow-none"><i class="bi bi-patch-plus me-2"></i>Create Fundraising Campaign</button>
+          <a href="createcampaign"><button class="btn btn-primary shadow-none"><i class="bi bi-patch-plus me-2"></i>Create Fundraising Campaign</button></a>
         </div>
         <table class="table table-hover caption-top">
         <caption><b>Your Fundraising Campaign</b></caption>
@@ -47,6 +47,7 @@
               <th scope="col">Goal</th>
               <th scope="col">Raised</th>
               <th scope="col" class="no-wrap">Raised %</th>
+              <th scope="col" class="no-wrap">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -57,6 +58,7 @@
               <td class="no-wrap">₹ 10,00,000.00</td>
               <td class="no-wrap">₹ 10,000.00</td>
               <td class="text-center"><span class="badge rounded-pill bg-success">25%</span></td>
+              <td class="text-center"><span class="badge rounded-pill bg-warning">Pending Approval</span></td>
             </tr>
             <tr>
               <td>#176</td>
@@ -65,6 +67,7 @@
               <td class="no-wrap">₹ 10,00,000.00</td>
               <td class="no-wrap">₹ 10,000.00</td>
               <td class="text-center"><span class="badge rounded-pill bg-success">25%</span></td>
+              <td class="text-center"><span class="badge rounded-pill bg-success">Running</span></td>
             </tr>
           </tbody>
         </table>
