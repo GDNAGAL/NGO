@@ -1,3 +1,9 @@
+<?php
+// require("include/session.php");
+ if(isset($_POST['login'])){
+    
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +32,7 @@
     <div class="row justify-content-md-center">
       <div class="col-md-6">
         <div class="bg-white shadow p-4 rounded-3">
-          <form>
+          <form method="POST" action="">
             <h2 class="text-center">LOG IN</h2>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email Address Or Mobile</label>
@@ -37,7 +43,7 @@
               <label for="exampleInputPassword1" class="form-label">Password</label>
               <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
-            <button type="submit" class="btn btn-primary">Log In</button>
+            <button type="submit" name="login" class="btn btn-primary">Log In</button>
             <a class="ms-2 text-danger" href="">Forgot Password ?</a>
             <p class="mt-3 mb-0">
               Don't have an account yet? <a class="text-danger" href="register"> Register Here</a>

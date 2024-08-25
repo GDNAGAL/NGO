@@ -15,37 +15,22 @@
   <div class="container-fluid">
     <section class="">
       <div class="row">
-        <div class=" col-lg-3 col-xl-3 mx-auto mt-3">
+        <div class=" col-lg-4 col-xl-4 mx-auto mt-3">
           <img src="Assets/images/lgg.png" width="100" alt="">
           <p class="mt-3" style="text-align:justify">JRD Foundation,<br>A sanctuary where cows find care and compassion. It was started with the simple idea of helping poor stray cows and treating them with the love and respect they deserve. At JRD Foundation, we are dedicated to rescuing, rehabilitating, and providing a safe haven for injured, ill, and abandoned cows. Our mission is to ensure these gentle creatures receive the medical treatment and care they need to recover and thrive.</p>
         </div>
 
         <hr class="w-100 clearfix d-md-none" />
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Informations</h6>
-          <p><a href="#" class="text-white">Blog</a></p>
-          <p><a href="#" class="text-white">Who We Are</a></p>
-          <p><a href="#" class="text-white">Our Team</a></p>
-          <p><a href="#" class="text-white">Success Stories</a></p>
-          <p><a href="#" class="text-white">Contact Us</a></p>
-          <p><a href="#" class="text-white">Privacy policies</a></p>
-          <p><a href="#" class="text-white">Terms and condition</a></p>
-          <p><a href="#" class="text-white">Refund and cancellation</a></p>
-        </div>
-
-        <hr class="w-100 clearfix d-md-none" />
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+        <div class="col-md-4 col-lg-4 col-xl-4 text-center pt-4 mx-auto mt-3">
           <h6 class="text-uppercase mb-4 font-weight-bold">Quick Links</h6>
-          <p><a href="#" class="text-white">Home</a></p>
-          <p><a href="#" class="text-white">Our Team</a></p>
-          <p><a href="#" class="text-white">Release</a></p>
-          <p><a href="#" class="text-white">Rescue</a></p>
-          <p><a href="#" class="text-white">Treatment</a></p>
-          <p><a href="#" class="text-white">Why Donate Us</a></p>
+          <p><a href="/" class="text-white">Home</a></p>
+          <p><a href="Who-We-Are" class="text-white">About Us</a></p>
+          <p><a href="contact" class="text-white">Contact Us</a></p>
+          <p><a href="#" class="text-white">Privacy Policy</a></p>
         </div>
 
         <hr class="w-100 clearfix d-md-none" />
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <div class="col-md-4 mx-auto mt-3 pt-4">
           <h6 class="text-uppercase mb-4 font-weight-bold">Contact Us</h6>
           <p><i class="bi bi-geo"></i> Address</p>
           <p><i class="fas fa-envelope mr-3"></i>
