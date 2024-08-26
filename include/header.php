@@ -1,4 +1,5 @@
 <?php
+  error_reporting(0);
   session_start();
  //require("session.php");
 ?>
@@ -55,10 +56,18 @@
                 <!-- <i class="bi bi-newspaper me-1"></i> -->
                 Blog</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact">
-                <!-- <i class="bi bi-telephone-fill me-2"></i> -->
-                Contact Us</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <!-- <i class="bi bi-fan"></i>  -->
+                Citizen Window
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Rescue">Download Certificate</a></li>
+                <li><a class="dropdown-item" href="Treatment">Treatment</a></li>
+                <li><a class="dropdown-item" href="Release">Release</a></li>
+                <li><a class="dropdown-item" href="Volunteer">Volunteer</a></li>
+                <li><a class="dropdown-item" href="contact">Contact Us</a></li>
+              </ul>
             </li>
             <?php if (!isset($_SESSION['loggedin'])) {?>
             <li class="nav-item">
