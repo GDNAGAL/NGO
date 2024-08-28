@@ -12,7 +12,7 @@
   <div class="offcanvas-body">
     <?php include $navfile; ?>
     <li class="nav-link">
-      <a href="createcampaign"><i class="bi bi-box-arrow-left me-3"></i>Logout</a>
+      <a href="logout"><i class="bi bi-box-arrow-left me-3"></i>Logout</a>
     </li>
   </div>
 </div>
