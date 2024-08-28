@@ -33,7 +33,7 @@
     </div>
     <div class="bg-white shadow p-4 rounded-3">
       <div class="text-end">
-        <a href="createcampaign"><button class="btn btn-primary shadow-none"><i class="bi bi-patch-plus me-2"></i>Create Fundraising Campaign</button></a>
+        <a href="createcampaign"><button class="btn btn-primary shadow-none"><i class="bi bi-plus me-2"></i>Create Fundraising Campaign</button></a>
       </div>
       <div class="table-responsive">
         <table class="table table-hover caption-top">

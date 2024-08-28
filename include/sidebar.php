@@ -1,6 +1,6 @@
 <div class="text-end">
     <a class="btn btn-primary mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-    <i class="bi bi-list me-2"></i> Show Navigation Menu
+    <i class="bi bi-list"></i> <span class="d-none d-lg-inline-block ms-2">Show Navigation Menu</span>
     </a>
 </div>
 
