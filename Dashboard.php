@@ -1,6 +1,5 @@
 <?php
- require("include/session.php");
-
+ require_once("include/session.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +29,7 @@
   <div class="container pt-4 pb-4">
     <?php require("include/sidebar.php"); ?>
     <div class="bg-white shadow p-4 rounded-3 mb-3">
-      <h4>Welcome, <?php echo $loginUserName;?></h4>
+      <h4>Welcome, <?php echo $user->FullName ?></h4>
     </div>
     <div class="bg-white shadow p-4 rounded-3">
       <div class="text-end">

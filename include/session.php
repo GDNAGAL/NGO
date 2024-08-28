@@ -1,37 +1,74 @@
 <?php
 // Start the session
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+// Include the User class and database connection
+require_once('User.php');
+require_once('dbconn.php');
 
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin'])) {
     $currentUrl = basename($_SERVER['REQUEST_URI'], ".php");
 
-    // Check if the current URL is not 'login'
+    // Redirect to the login page if the current page is not 'login'
     if ($currentUrl !== 'login') {
         $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
-        header('Location: login');
-        exit;
-    }
-}
-require("dbconn.php");
-$loginUserID = $_SESSION['user_id'];
-$loginUserName = $_SESSION['fullname'];
-// Set session timeout duration (optional)
-$inactive = 600; // 10 minutes of inactivity
-
-if (isset($_SESSION['timeout'])) {
-    $session_life = time() - $_SESSION['timeout'];
-    if ($session_life > $inactive) {
-        session_destroy();
         header('Location: login.php');
         exit;
     }
 }
 
-$_SESSION['timeout'] = time(); // Reset the timeout counter
+// Initialize the User object if not already set in session
+if (!isset($_SESSION['user_object'])) {
+    $loginUserID = $_SESSION['user_id'];
 
-// Optionally, store some user data in the session
-// $_SESSION['username'] = 'example_user';
-// $_SESSION['user_role'] = 'admin';
+    // Fetch the user data from the database
+    $query = "SELECT * FROM users WHERE ID = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $loginUserID);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        ///print_r($row);
+        $data = new User($row);
+        $_SESSION['user_object'] = serialize($data);
+    } else {
+        echo "No user data found.";
+        exit;
+    }
+
+    $stmt->close();
+}
+$navfile = '';
+$allowedPages = [];
+if (isset($_SESSION['user_object'])) {
+    $user = unserialize($_SESSION['user_object']); 
+
+    switch ($user->Role) {
+        case 'ADMIN':
+            $navfile= 'Navigation/Admin.php';
+            $allowedPages = [];
+            break;
+    
+        case 'NGOUSER':
+            $navfile= 'Navigation/NGOUser.php';
+            $allowedPages = [];
+            break;
+    
+        case 'VISITOR':
+            $navfile= 'Navigation/VISITOR.php';
+            $allowedPages = [];
+            break;
+    
+        default:
+            $nav = "<li class='nav-link'>
+                        <a href='Dashboard'><i class='bi bi-house me-3'></i>Dashboard</a>
+                    </li>";
+            $allowedPages = [];
+            break;
+    }
+}
 ?>

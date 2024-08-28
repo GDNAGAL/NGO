@@ -62,10 +62,8 @@
                 Citizen Window
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="Rescue">Download Certificate</a></li>
-                <li><a class="dropdown-item" href="Treatment">Treatment</a></li>
-                <li><a class="dropdown-item" href="Release">Release</a></li>
-                <li><a class="dropdown-item" href="Volunteer">Volunteer</a></li>
+                <li><a class="dropdown-item" href="Rescue">Verify Your Donation</a></li>
+                <li><a class="dropdown-item" href="Treatment">Download Certificate</a></li>
                 <li><a class="dropdown-item" href="contact">Contact Us</a></li>
               </ul>
             </li>
