@@ -107,7 +107,7 @@ $conn->close();
         <div class="bg-white shadow p-4 rounded-3">
           <form method="POST" action="">
             <h4>Create Campaign</h4>
-            <ul>
+            <ul style="font-size:13px">
               <li>Only registered and verified users can create a campaign.</li>
               <li>The campaign must align with the NGO's mission and values, focusing on causes like animal rescue, shelter maintenance, or related activities.</li>
               <li>All campaigns must go through an approval process by the NGO's team to ensure they meet the guidelines and objectives of the organization.</li>
