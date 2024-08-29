@@ -87,7 +87,14 @@ input[type=number] {
                 <button type="button" class="w-100 btn btn-danger shadow-none">Login / Register</button></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="products"><button type="button" class="w-100 btn btn-success shadow-none">Donate Now</button></a>
+            <div class="dropdown">
+                <a class="btn btn-success shadow-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Donate Now
+                </a>
+                <ul class="dropdown-menu" style="right:0!important; left:auto!important">
+                  <li><a class="dropdown-item" href="donateAmount">Donate Amount</a></li>
+                  <li><a class="dropdown-item" href="products">Donate Product</a></li>
+                </ul>
+              </div>
             </li>
             <?php };?>
 
