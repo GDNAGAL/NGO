@@ -55,12 +55,12 @@ if (isset($_SESSION['user_object'])) {
     
         case 'NGOUSER':
             $navfile= 'Navigation/NGOUser.php';
-            $allowedPages = [];
+            $allowedPages = ["createcampaign"];
             break;
     
         case 'VISITOR':
             $navfile= 'Navigation/VISITOR.php';
-            $allowedPages = [];
+            $allowedPages = ["createcampaign"];
             break;
     
         default:
