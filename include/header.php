@@ -3,6 +3,19 @@
   session_start();
  //require("session.php");
 ?>
+<style>
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-customp">
     <div class="container">
       <a class="navbar-brand" href="#"><img src="Assets/images/lgg.png" width="50" height="50"></a>

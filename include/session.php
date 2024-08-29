@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 // Include the User class and database connection
 require_once('User.php');
 require_once('dbconn.php');
-
+$allowedPages = array();
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin'])) {
     $currentUrl = basename($_SERVER['REQUEST_URI'], ".php");
@@ -43,14 +43,14 @@ if (!isset($_SESSION['user_object'])) {
     $stmt->close();
 }
 $navfile = '';
-$allowedPages = [];
+
 if (isset($_SESSION['user_object'])) {
     $user = unserialize($_SESSION['user_object']); 
 
     switch ($user->Role) {
         case 'ADMIN':
             $navfile= 'Navigation/Admin.php';
-            $allowedPages = [];
+            $allowedPages = ["Users","AddUser"];
             break;
     
         case 'NGOUSER':
@@ -69,6 +69,15 @@ if (isset($_SESSION['user_object'])) {
                     </li>";
             $allowedPages = [];
             break;
+    }
+}
+
+function isAllowed($page){
+    global $allowedPages;
+    if (in_array($page, $allowedPages)) {
+        return true;
+    } else {
+        return false;
     }
 }
 ?>

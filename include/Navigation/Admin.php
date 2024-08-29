@@ -14,7 +14,7 @@
     <a href="createcampaign"><i class="bi bi-patch-plus me-3"></i>Manage Fundraising Campaign</a>
 </li>
 <li class="nav-link">
-    <a href="createcampaign"><i class="bi bi-people me-3"></i>Manage Users</a>
+    <a href="Users"><i class="bi bi-people me-3"></i>Manage Users</a>
 </li>
 <hr>
 <li class="nav-link">
