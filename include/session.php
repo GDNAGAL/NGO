@@ -6,6 +6,7 @@ ini_set('display_errors', 1);
 // Include the User class and database connection
 require_once('User.php');
 require_once('dbconn.php');
+$cUrl = urlencode($_SERVER['REQUEST_URI']);
 $allowedPages = array();
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin'])) {
@@ -50,7 +51,7 @@ if (isset($_SESSION['user_object'])) {
     switch ($user->Role) {
         case 'ADMIN':
             $navfile= 'Navigation/Admin.php';
-            $allowedPages = ["Users","AddUser"];
+            $allowedPages = ["Users","AddUser","ViewAllCompaign"];
             break;
     
         case 'NGOUSER':

@@ -98,15 +98,16 @@ if (isset($_POST['createcampaign'])) {
 
     if (empty($errorMessages)) {
         // Insert campaign into the database
-        $query = "INSERT INTO `campaigns` (`UserID`, `Title`, `Description`, `GoalAmount`, `StartDate`, `EndDate`, `isAcceptTerms`, `Status`, `BannerPath`, `CreatedAt`) 
-                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+        $query = "INSERT INTO `campaigns` (`UserID`, `CompaignGUID`, `Title`, `Description`, `GoalAmount`, `StartDate`, `EndDate`, `isAcceptTerms`, `Status`, `BannerPath`, `CreatedAt`) 
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
         $stmt = $conn->prepare($query);
         if (!$stmt) {
             $errorMessages = "Database prepare statement failed: " . $conn->error . "<br>";
         } else {
             $UserID = $user->UserID;
             $status = 1; // Pending By Default
-            $stmt->bind_param("sssssssss",$UserID , $title, $description, $goalamount, $startdate, $enddate, $acceptterms, $status, $bannerPath);
+            $CompaignGUID = md5(time());
+            $stmt->bind_param("ssssssssss",$UserID , $CompaignGUID, $title, $description, $goalamount, $startdate, $enddate, $acceptterms, $status, $bannerPath);
             if ($stmt->execute()) {
                 $successMessages = "Campaign Created Successfully.";
                 $_SESSION['success'] = $successMessages;
