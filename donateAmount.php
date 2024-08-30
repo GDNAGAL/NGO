@@ -34,7 +34,7 @@
     </div>
     <div class="row justify-content-md-center">
       <div class="col-md-8">
-      <div class="bg-white shadow p-4 rounded-3">
+        <div class="bg-white shadow p-4 rounded-3">
           <form method="POST" action="" autocomplete="off">
             <h5>Basic Information</h5>
               <?php if(!empty($errorMessages)): ?>
@@ -108,52 +108,71 @@
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="address" class="form-label">Select Payment Method</label>
-                    <select class="form-control" name="state" id="state" required>
-                      <option></option>
-                      <option>Online Payment</option>
-                      <option>Bank Transfer</option>
+                    <select class="form-control" name="state" id="paymentMethod" required>
+                      <option value=""></option>
+                      <option value="ONLINE_PAYMENT">Online Payment</option>
+                      <option value="BANK_TRANSFER">Bank Transfer</option>
                       <!-- Add more states as needed -->
                     </select>
                   </div>
                 </div>
               </div>
-              <div class="">
+              <div id="BANK" class="d-none">
                 <h5>Account Details:</h5>
                 <table>
                   <tr>
                     <th>Account Holder Name</th>
-                    <td>: Our Foundation</td>
+                    <th>:</th>
+                    <td class="ps-2 text-danger">Our Foundation</td>
                   </tr>
                   <tr>
                     <th>Account Number</th>
-                    <td>: 658456548469</td>
+                    <th>:</th>
+                    <td class="ps-2 text-danger">658456548469</td>
                   </tr>
                   <tr>
                     <th>Bank Name</th>
-                    <td>: State Bank of India</td>
+                    <th>:</th>
+                    <td class="ps-2 text-danger">State Bank of India</td>
                   </tr>
                   <tr>
                     <th>IFSCode</th>
-                    <td>: SBIN0031317</td>
+                    <th>:</th>
+                    <td class="ps-2 text-danger">SBIN0031317</td>
                   </tr>
                 </table>
                 <h6 class="mt-3">Note:</h6>
                 <ul>
-                  <li>sdgkjhgkjg</li>
-                  <li>sdgkjhgkjg</li>
-                  <li>sdgkjhgkjg</li>
-                  <li>sdgkjhgkjg</li>
+                  <li>Verify the account number and bank details before making the transfer.</li>
+                  <li>Ensure the donation amount is correct before transferring.</li>
+                  <li>Keep the transaction reference number or ID provided by your bank.</li>
+                  <li>After payment, submit the transaction ID via below input.</li>
                 </ul>
                 <div class="col-md-6">
-                <div class="mb-3">
-                  <label for="mobileno" class="form-label">Enter Transaction Ref. No.</label>
-                  <input type="text" class="form-control" id="mobileno" name="mobileno" value="<?php echo isset($mobileno) ? htmlspecialchars($mobileno) : ''; ?>" required>
+                  <div class="mb-3">
+                    <label for="mobileno" class="form-label">Enter Transaction Ref. No.</label>
+                    <input type="text" class="form-control" id="mobileno" name="mobileno" value="<?php echo isset($mobileno) ? htmlspecialchars($mobileno) : ''; ?>" required>
+                  </div>
                 </div>
-              </div>
-              </div>
-              <button type="submit" name="adduser" class="btn btn-primary shadow-none">Submit</button>
+              </div> 
+              <div id="ONLINEUPI" class="d-none">
+                <h5 class="text-center">Scan Below QR Code:</h5>
+                <div class="text-center">
+                  <img class="border p-2" width="200px" height="200px" src="https://media.tenor.com/wpSo-8CrXqUAAAAi/loading-loading-forever.gif" alt="">
+                </div>
+                <h6 class="mt-3">Note:</h6>
+                <ul>
+                  <li class="text-danger fw-bold">Please Do Not Reload or Back This Page.</li>
+                  <li>Verify the account number and bank details before making the transfer.</li>
+                  <li>Ensure the donation amount is correct before transferring.</li>
+                  <li>Keep the transaction reference number or ID provided by your bank.</li>
+                  <li>After payment, submit the transaction ID via below input.</li>
+                </ul>
+              </div>  
+              <button type="button" class="btn btn-primary shadow-none">Proceed to Payment</button>
+              <button type="submit" name="adduser" class="btn btn-primary shadow-none d-none">Submit</button>
             </form>
-          </div>
+        </div>
       </div>
       <div class="col-md-4">
         <div class="bg-white shadow p-4 rounded-3">
@@ -166,4 +185,26 @@
   <?php require("include/footer.php"); ?>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>                 
   </body>
+
+  <script>
+    $(document).ready(function(){
+      $("#paymentMethod").on('change',function(){
+        HideAll()
+        const paymentMethod = $(this).val();
+        if(paymentMethod == 'BANK_TRANSFER'){
+          $("#BANK").removeClass('d-none')
+          $("#BANK").addClass('d-block')
+        }else if(paymentMethod == 'ONLINE_PAYMENT'){
+          $("#ONLINEUPI").removeClass('d-none')
+          $("#ONLINEUPI").addClass('d-block')
+        }
+      })
+    })
+    function HideAll(){
+      $("#BANK").removeClass('d-block')
+      $("#BANK").addClass('d-none')
+      $("#ONLINEUPI").removeClass('d-block')
+      $("#ONLINEUPI").addClass('d-none')
+    }
+  </script>
 </html>
