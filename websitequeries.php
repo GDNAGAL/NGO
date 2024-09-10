@@ -38,36 +38,55 @@ $result = $conn->query($query);
         }
     </style>
 </head>
-<body>
+<body> 
 <?php require("include/header.php"); ?>
 <div style="background-color: #E6F3FF;">
   <div class="container pt-4 pb-4">
     <?php require("include/sidebar.php"); ?>
     <div class="bg-white shadow p-4 rounded-3">
       <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4 class="m-0">Receipt Book</h4>
+        <h4 class="m-0">All WebQueries</h4>
         <a href="AddUser"><button class="btn btn-primary shadow-none"><i class="bi bi-plus me-2"></i>Add New User</button></a>
       </div>
       <div class="table-responsive">
         <table class="table table-hover" id="userTable">
           <thead>
             <tr>
-              <th scope="col" class="no-wrap">serial number</th>
-              <th scope="col">Book Name</th>
-              <th scope="col">Status</th>
-              <th scope="col">action buttons</th>
+              <th scope="col" class="no-wrap">Query ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Subject</th>
+              <th scope="col" class="no-wrap">Message</th>
+              <th scope="col" class="no-wrap">Date Submitted</th>
             </tr>
           </thead>
           <tbody>
           <?php
-            echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['serial number']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['Book Name']) . "</td>";
-            echo "<td class='no-wrap'>" . htmlspecialchars($row['Status']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['Action Buttons'].','.$row['Action Buttons']) . "</td>";
-            echo "</tr>";
-          ?>
-          </tbody>
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                  $rolename = "";
+                  if($row['isAdmin']){
+                    $rolename = "Admin";
+                  }elseif($row['isNGOUser']){
+                    $rolename = "NGO User";
+                  }else{
+                    $rolename = "Website User";
+                  }
+
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['FullName']) . "</td>";
+                    echo "<td>" . (!empty($row['Email']) ? htmlspecialchars($row['Email']) . ($row['isEmailVerified'] ? "<i class='bi bi-check-circle-fill ms-2 text-success'></i>" : "<i class='bi bi-exclamation-circle-fill ms-2 text-warning'></i>") : "") . "</td>";
+                    echo "<td>" . (!empty($row['Subject']) ? htmlspecialchars($row['Subject']) . ($row['isSubjectVerified'] ? "<i class='bi bi-check-circle-fill ms-2 text-success'></i>" : "<i class='bi bi-exclamation-circle-fill ms-2 text-warning'></i>") : "") . "</td>";
+                    echo "<td>" . (!empty($row['Message']) ? htmlspecialchars($row['Message']) . ($row['isMessage'] ? "<i class='bi bi-check-circle-fill ms-2 text-success'></i>" : "<i class='bi bi-exclamation-circle-fill ms-2 text-warning'></i>") : "") . "</td>";
+                    echo "<td>" . (!empty($row['Date Submitted']) ? htmlspecialchars($row['Date Submitted']) . ($row['isDate Submitted'] ? "<i class='bi bi-check-circle-fill ms-2 text-success'></i>" : "<i class='bi bi-exclamation-circle-fill ms-2 text-warning'></i>") : "") . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='7' class='text-center'>No users found</td></tr>";
+            }
+            ?>
+          </tbody>  
         </table>
       </div>
     </div>
