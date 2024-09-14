@@ -46,7 +46,6 @@ $result = $conn->query($query);
     <div class="bg-white shadow p-4 rounded-3">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h4 class="m-0">Website Contact Form Data</h4>
-        <a href="AddUser"><button class="btn btn-primary shadow-none"><i class="bi bi-plus me-2"></i>Add New User</button></a>
       </div>
       <div class="table-responsive">
         <table class="table table-hover" id="userTable">
