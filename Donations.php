@@ -7,7 +7,7 @@
 
 
 // Fetch user data from the database
-$query = "SELECT * FROM users";
+$query = "SELECT dn.*, ds.*, dn.CreatedAt as DCreatedAt FROM `donations` dn INNER JOIN donors ds on dn.DonorID = ds.ID;";
 $result = $conn->query($query);
 ?>
 <!DOCTYPE html>
@@ -45,49 +45,47 @@ $result = $conn->query($query);
     <?php require("include/sidebar.php"); ?>
     <div class="bg-white shadow p-4 rounded-3">
       <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4 class="m-0">Admin</h4>
-        <a href="AddUser"><button class="btn btn-primary shadow-none"><i class="bi bi-plus me-2"></i>Add New User</button></a>
+        <h4 class="m-0">Donations </h4>
+        <a href="AddUser"><button class="btn btn-primary shadow-none"><i class="bi bi-plus me-2"></i>Add New</button></a>
       </div>
       <div class="table-responsive">
-        <table class="table table-hover" id="userTable">
+        <table class="table table-hover" id="donationTable">
           <thead>
             <tr>
               <th scope="col" class="no-wrap">Sno</th>
-              <th scope="col" class="no-wrap">Date</th>
+              <th scope="col" class="no-wrap">Donation Date</th>
               <th scope="col">Donor Name</th>
-              <th scope="col" class="no-wrap">Address</th>
+              <th scope="col" class="no-wrap">Email</th>
+              <th scope="col">Address</th>
               <th scope="col" class="no-wrap">Amount</th>
-              <th scope="col">IsAnonymous</th>
+              <th scope="col">Donation Type</th>
               <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
           <?php
             if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                  $rolename = "";
-                  if($row['isAdmin']){
-                    $rolename = "E.G";
-                  }elseif($row['isNGOUser']){
-                    $rolename = "Panding";
-                  }else{
-                    $rolename = "Completed";
-                  }
-
-                  echo "<tr>";
-                  echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
-                  echo "<td class='no-wrap'>" . htmlspecialchars($row['DOB']) . "</td>";
-                  echo "<td>" . htmlspecialchars($row['FullName']) . "</td>";
-                  echo "<td>" . htmlspecialchars($row['AddressLine1'].','.$row['City']) . "</td>";
-                  echo "<td>" . htmlspecialchars($row['Amount']). ($row['isAmountVerified']?"<i class='bi bi-check-circle-fill ms-2 text-success'></i>":"<i class='bi bi-exclamation-circle-fill ms-2 text-warning'></i>") . "</td>";
-                  echo "<td>" . (!empty($row['Email']) ? htmlspecialchars($row['IsAnonymous']) . ($row['isAnonymous'] ? "<i class='bi bi-check-circle-fill ms-2 text-success'></i>" : "<i class='bi bi-exclamation-circle-fill ms-2 text-warning'></i>") : "") . "</td>";
-                  echo "<td>" . htmlspecialchars($rolename) . "</td>";
-                  echo "</tr>";
+                $n = 0;
+                while ($row = $result->fetch_assoc()) {
+                    $n++;
+            
+                    // Ensure DonationType and Status are handled properly, even if they're missing
+                    $donationType = isset($row['DonationType']) ? $row['DonationType'] : 'N/A';
+                    $status = isset($row['Status']) ? $row['Status'] : 'N/A';
+            
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($n) . "</td>";
+                    echo "<td class='no-wrap'>" . htmlspecialchars($row['DCreatedAt']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Email']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Address'] . ', ' . $row['City']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Amount']) . "</td>";
+                    echo "<td>" . htmlspecialchars($donationType) . "</td>";  // DonationType
+                    echo "<td>" . htmlspecialchars($status) . "</td>";  // Status
+                    echo "</tr>";
                 }
-            } else {
-                echo "<tr><td colspan='7' class='text-center'>No users found</td></tr>";
             }
-            ?>
+          ?>
           </tbody>
         </table>
       </div>
@@ -98,7 +96,7 @@ $result = $conn->query($query);
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>     
   <script>
     $(document).ready(function() {
-        $('#userTable').DataTable({
+        $('#donationTable').DataTable({
             "paging": true,
             "searching": true,
             "ordering": true,

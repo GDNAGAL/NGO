@@ -46,7 +46,7 @@ $result = $conn->query($query);
     <div class="bg-white shadow p-4 rounded-3">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h4 class="m-0">Receipt Book</h4>
-        <a href="AddUser"><button class="btn btn-primary shadow-none"><i class="bi bi-plus me-2"></i>Add New User</button></a>
+        <a href="AddReceiptBook"><button class="btn btn-primary shadow-none"><i class="bi bi-plus me-2"></i>Add New User</button></a>
       </div>
       <div class="table-responsive">
         <table class="table table-hover" id="userTable">
@@ -59,14 +59,14 @@ $result = $conn->query($query);
             </tr>
           </thead>
           <tbody>
-          <?php
-            echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['serial number']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['Book Name']) . "</td>";
-            echo "<td class='no-wrap'>" . htmlspecialchars($row['Status']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['Action Buttons'].','.$row['Action Buttons']) . "</td>";
-            echo "</tr>";
-          ?>
+            <?php
+              echo "<tr>";
+              echo "<td>" . htmlspecialchars($row['serial number']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['Book Name']) . "</td>";
+              echo "<td class='no-wrap'>" . htmlspecialchars($row['Status']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['Action Buttons'].','.$row['Action Buttons']) . "</td>";
+              echo "</tr>";
+            ?>
           </tbody>
         </table>
       </div>

@@ -7,7 +7,7 @@
 
 
 // Fetch user data from the database
-$query = "SELECT * FROM users";
+$query = "SELECT * FROM contacts Order By CreatedAt DESC";
 $result = $conn->query($query);
 ?>
 <!DOCTYPE html>
@@ -45,13 +45,14 @@ $result = $conn->query($query);
     <?php require("include/sidebar.php"); ?>
     <div class="bg-white shadow p-4 rounded-3">
       <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4 class="m-0">All WebQueries</h4>
+        <h4 class="m-0">Website Contact Form Data</h4>
         <a href="AddUser"><button class="btn btn-primary shadow-none"><i class="bi bi-plus me-2"></i>Add New User</button></a>
       </div>
       <div class="table-responsive">
         <table class="table table-hover" id="userTable">
           <thead>
             <tr>
+              <th scope="col" class="no-wrap">S.No.</th>
               <th scope="col" class="no-wrap">Query ID</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
@@ -63,23 +64,17 @@ $result = $conn->query($query);
           <tbody>
           <?php
             if ($result->num_rows > 0) {
+              $n=0;
                 while($row = $result->fetch_assoc()) {
-                  $rolename = "";
-                  if($row['isAdmin']){
-                    $rolename = "Admin";
-                  }elseif($row['isNGOUser']){
-                    $rolename = "NGO User";
-                  }else{
-                    $rolename = "Website User";
-                  }
-
+                  $n++;
                     echo "<tr>";
+                    echo "<td>" . htmlspecialchars($n) . "</td>";
                     echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['FullName']) . "</td>";
-                    echo "<td>" . (!empty($row['Email']) ? htmlspecialchars($row['Email']) . ($row['isEmailVerified'] ? "<i class='bi bi-check-circle-fill ms-2 text-success'></i>" : "<i class='bi bi-exclamation-circle-fill ms-2 text-warning'></i>") : "") . "</td>";
-                    echo "<td>" . (!empty($row['Subject']) ? htmlspecialchars($row['Subject']) . ($row['isSubjectVerified'] ? "<i class='bi bi-check-circle-fill ms-2 text-success'></i>" : "<i class='bi bi-exclamation-circle-fill ms-2 text-warning'></i>") : "") . "</td>";
-                    echo "<td>" . (!empty($row['Message']) ? htmlspecialchars($row['Message']) . ($row['isMessage'] ? "<i class='bi bi-check-circle-fill ms-2 text-success'></i>" : "<i class='bi bi-exclamation-circle-fill ms-2 text-warning'></i>") : "") . "</td>";
-                    echo "<td>" . (!empty($row['Date Submitted']) ? htmlspecialchars($row['Date Submitted']) . ($row['isDate Submitted'] ? "<i class='bi bi-check-circle-fill ms-2 text-success'></i>" : "<i class='bi bi-exclamation-circle-fill ms-2 text-warning'></i>") : "") . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Email']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Subject']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['Message']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['CreatedAt']). "</td>";
                     echo "</tr>";
                 }
             } else {

@@ -1,3 +1,65 @@
+<?php
+require("include/dbconn.php");
+session_start();
+$errorMessages = ""; 
+$successMessages = ""; 
+
+if (isset($_POST['sendMessage'])) {
+    // Get and sanitize input values
+    $fullname = trim($_POST['fullname']);
+    $email = trim($_POST['email']);
+    $subject = trim($_POST['subject']);
+    $message = trim($_POST['message']);
+
+    $mailStatus = 0;
+    if(sendmail($email,$subject,$fullname,$message)){
+      $mailStatus = 1;
+    }else{
+      $mailStatus = 0;
+    }
+    // Insert form details into the database
+    $query = "INSERT INTO `contacts` (`Name`, `Email`, `Subject`, `Message`, `isMailSucess`, `isSeen`, `CreatedAt`) 
+              VALUES (?, ?, ?, ?, ?, '0', NOW())";
+    $stmt = $conn->prepare($query);
+    if (!$stmt) {
+        $errorMessages = "Database prepare statement failed: " . $conn->error . "<br>";
+    } else {
+        $stmt->bind_param("sssss", $fullname, $email, $subject, $message, $mailStatus);
+        if ($stmt->execute()) {
+            $successMessages = "Form Submitted Successfully.";
+            $_SESSION['success'] = $successMessages;
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit;
+        } else {
+            $errorMessages = "Error: " . $stmt->error . "<br>";
+        }
+    }
+    $stmt->close();
+}
+$conn->close();
+
+
+
+function sendmail($email,$subject,$fullname,$message){
+  $to = "gdnagal1536@gmail.com"; 
+  $email_subject = "New Contact Form Submission: $subject";
+  $email_body = "You have received a new message from $fullname.\n\n".
+                "Email: $email\n".
+                "Subject: $subject\n\n".
+                "Message:\n$message";
+  
+  // Email headers
+  $headers = "From: $email\n";
+  $headers .= "Reply-To: $email";
+
+  // Send the email
+  if (mail($to, $email_subject, $email_body, $headers)) {
+      return true;
+  } else {
+      return false;
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +75,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="contact.html">
-
     <style>
 
     </style>
@@ -104,45 +164,58 @@
     </div>
 </section>
 <section class="py-5">
-	<div class="container-fluid p-lg-0">
-		<div class="row g-0 align-items-center">
+	<div class="container-fluid">
+		<div class="row">
 			<div class="col-lg-6">
 				<div class="col-lg-8 mx-auto">
-					<h2 class="display-5 fw-bold">Keep In Touch</h2>
-					<form>
+					<h2 class="fw-bold mb-4">Keep In Touch</h2>
+          <?php if(!empty($errorMessages)): ?>
+            <div class="alert alert-danger">
+              <?php echo $errorMessages; ?>
+            </div>
+          <?php endif; ?>
+          <?php if(!empty($_SESSION['success'])): ?>
+            <div class="alert alert-success">
+              <?php echo $_SESSION['success'];
+              unset($_SESSION['success']);
+              ?>
+            </div>
+          <?php endif; ?>
+					<form method="post" action="" autocomplete="off">
 						<div class="row">
 							<div class="col-md-12">
 								<div class="mb-3">
-									<input class="form-control bg-light" placeholder="Your name" type="text">
+									<input class="form-control bg-light" placeholder="Your name" type="text" name="fullname" required>
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="mb-3">
-									<input class="form-control bg-light" placeholder="Your email" type="text">
+									<input class="form-control bg-light" placeholder="Your email" type="email" name="email" required>
 								</div>
 							</div>
               <div class="col-md-12">
 								<div class="mb-3">
-									<input class="form-control bg-light" placeholder="Subject" type="text">
+									<input class="form-control bg-light" placeholder="Subject" type="text" name="subject" required>
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="mb-3">
-									<textarea class="form-control bg-light" placeholder="Your message" rows="4"></textarea>
+									<textarea class="form-control bg-light" placeholder="Your message" rows="4" name="message" required></textarea>
 								</div>
 							</div>
-              <div class="g-recaptcha" data-sitekey="6LcVmwIqAAAAAHsZ7M94vWGVPAUU6au39A2BL2Nn"></div>
-							<div class="col-md-5">
+              <div class="col-md-5">
 								<div id="sumbit">
-									<button class="btn btn-primary" type="submit">sumbit</button>
+									<button class="btn btn-primary" name="sendMessage" type="submit">sumbit</button>
 								</div>
 							</div>
 						</div>
 					</form>
 				</div>
 			</div>
-			<div class="col-lg-5">
+			<div class="col-lg-6">
+        <div class="p-2">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1760.4882124727085!2d73.27358748489067!3d28.055744436177477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393fc3de3a94a785%3A0x2da194e27fca1286!2sThe%20Akshaya%20Patra%20Foundation%20Bikaner!5e0!3m2!1sen!2sin!4v1719579454481!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
 			</div>
 		</div>
 	</div>
