@@ -57,6 +57,7 @@ $result = $conn->query($query);
               <th scope="col">Email</th>
               <th scope="col">Subject</th>
               <th scope="col" class="no-wrap">Message</th>
+              <th scope="col" class="no-wrap">Status</th>
               <th scope="col" class="no-wrap">Date Submitted</th>
             </tr>
           </thead>
@@ -73,6 +74,7 @@ $result = $conn->query($query);
                     echo "<td>" . htmlspecialchars($row['Email']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['Subject']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['Message']) . "</td>";
+                    echo "<td class='text-center'>" . ($row['isMailSucess'] ? "<i style='font-size:25px' class='bi bi-envelope-check text-success'></i>" : "<i style='font-size:25px' class='bi bi-envelope-exclamation text-warning'></i>") . "</td>";
                     echo "<td>" . htmlspecialchars($row['CreatedAt']). "</td>";
                     echo "</tr>";
                 }
