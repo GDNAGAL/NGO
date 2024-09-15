@@ -117,11 +117,11 @@ $result = $conn->query($query);
         <table class="table table-hover" id="userTable">
           <thead>
             <tr>
-              <th scope="col" class="no-wrap">S.No.</th>
+              <th scope="col" class="text-center">S.No.</th>
               <th scope="col">Book Title</th>
               <th scope="col" class="text-center">Status</th>
-              <th scope="col">Added Date</th>
-              <th scope="col">Action</th>
+              <th scope="col" class="text-center">Added Date</th>
+              <th scope="col" class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -134,8 +134,12 @@ $result = $conn->query($query);
                       echo "<td>" . htmlspecialchars($n) . "</td>";
                       echo "<td>" . (htmlspecialchars($row['Title'])) . "</td>";
                       echo "<td class='text-center'><span class='badge rounded-pill bg-".$row['BClass']."'>".(htmlspecialchars($row['StatusText']))."</span></td>";
-                      echo "<td class='no-wrap'>" . htmlspecialchars($row['CreatedAt']) . "</td>";
-                      echo "<td><a href=''><i class='bi bi-pencil-fill'></i></a> <a href='' class='ms-3'><i class='bi bi-trash-fill'></i></a></td>";
+                      echo "<td class='no-wrap text-center'>" . htmlspecialchars($row['CreatedAt']) . "</td>";
+                      $deleteIcon = ($row['Status'] == 1) 
+                          ? "<a href='' title='Delete Book'><i class='bi bi-trash-fill'></i></a>" 
+                          : "<span class='text-muted' title='Book Can not Delete'><i class='bi bi-trash-fill'></i></span>";
+                      
+                      echo "<td class='text-center'><a href=''><i class='bi bi-pencil-fill me-3'></i></a> $deleteIcon</td>";
                       echo "</tr>";
                   }
               }
