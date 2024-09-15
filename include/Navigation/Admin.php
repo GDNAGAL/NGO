@@ -2,7 +2,7 @@
         <a href="Dashboard"><i class="bi bi-house me-3"></i>Dashboard</a>
 </li>
 <li class="nav-link">
-    <a href="ManageReceiptbooks"><i class="bi bi-receipt me-3"></i></i>Manage Receipt Book</a>
+    <a href="ManageReceiptBooks"><i class="bi bi-receipt me-3"></i></i>Manage Receipt Book</a>
 </li>
 <li class="nav-link">
     <a href="IssueReceiptBook"><i class="bi bi-person-video2 me-3"></i></i>Issue Receipt Book</a>
@@ -21,5 +21,12 @@
 </li>
 <hr>
 <li class="nav-link">
-    <a href="websitequeries"><i class="bi bi-question-square me-3"></i>Website Queries</a>
+    <a href="websitequeries"><i class="bi bi-question-square me-3"></i>Website Queries
+        <?php if ($unSeenWebsiteQuery > 0): ?>
+            <span class="ms-2 badge rounded-pill bg-danger">
+                <?php echo ($unSeenWebsiteQuery > 9) ? '9+' : $unSeenWebsiteQuery; ?>
+                <span class="visually-hidden">unSeen Website Queries</span>
+            </span>
+        <?php endif; ?>
+    </a>
 </li>

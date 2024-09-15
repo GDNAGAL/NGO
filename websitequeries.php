@@ -5,6 +5,11 @@
     exit;
  }
 
+//Update All Query as Seen
+$uquery = "UPDATE `contacts` SET `isSeen` = 1 WHERE `isSeen` = 0";
+$stmt = $conn->prepare($uquery);
+$stmt->execute();
+$unSeenWebsiteQuery = 0;
 
 // Fetch user data from the database
 $query = "SELECT * FROM contacts Order By CreatedAt DESC";

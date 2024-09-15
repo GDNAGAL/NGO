@@ -73,6 +73,20 @@ if (isset($_SESSION['user_object'])) {
     }
 }
 
+$query = "SELECT COUNT(*) as unreadCount FROM `contacts` WHERE isSeen = 0";
+$stmt = $conn->prepare($query);
+if ($stmt) {
+    $stmt->execute();
+    $stmt->bind_result($unreadCount);
+    $stmt->fetch();
+    
+    $unSeenWebsiteQuery = $unreadCount;
+    $stmt->close();
+}else{
+    $unSeenWebsiteQuery = 0;
+}
+
+
 function isAllowed($page){
     global $allowedPages;
     if (in_array($page, $allowedPages)) {
