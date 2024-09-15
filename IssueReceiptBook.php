@@ -83,6 +83,14 @@ if (isset($_POST['adduser'])) {
     }
 }
 
+
+$bquery = "SELECT * FROM `receiptbooks` WHERE Status =1 Order by CreatedAt DESC";
+$bookresult = $conn->query($bquery);
+
+$userquery = "SELECT ID, FullName, MobileNo FROM `users` WHERE isNGOUser =1";
+$userresult = $conn->query($userquery);
+
+
 $conn->close();
 ?>
 
@@ -117,6 +125,7 @@ $conn->close();
         <div class="bg-white shadow p-4 rounded-3">
           <form method="POST" action="" autocomplete="off">
             <h4>Receipt Book Issue</h4>
+            <span class="text-danger d-block mb-3" style="font-size:12px">Book Can be Issue only to our NGO users.</span>
               <?php if(!empty($errorMessages)): ?>
                 <div class="alert alert-danger">
                   <?php echo $errorMessages; ?>
@@ -132,23 +141,33 @@ $conn->close();
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label for="fullname" class="form-label">select the receipt book</label>
-                    <select class="form-select">
-                    <option selected>select Receipt...</option>
-                    <option value="1">Receipt One</option>
-                    <option value="2">Receipt Two</option>
-                    <option value="3">Receipt Three</option>
+                    <label for="fullname" class="form-label">Select Receipt Book</label>
+                    <select class="form-select shadow-none">
+                    <option selected disabled>Select Book</option>
+                    <?php
+                      // Fetch Book data from the database
+                      if ($bookresult->num_rows > 0) {
+                        while($row = $bookresult->fetch_assoc()) {
+                          echo "<option value='" . htmlspecialchars($row['ID']) . "'>" . htmlspecialchars($row['Title']) . " - " . htmlspecialchars($row['MobileNo']) . "</option>";
+                        }
+                      }
+                    ?>
                    </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label for="email" class="form-label">select the user</label>
-                    <select class="form-select">
-                     <option selected>select user...</option>
-                     <option value="1">Gd Nagal</option>
-                     <option value="2">Ms Suthar</option>
-                     <option value="3">Rakesh Kumar</option>
+                    <label for="email" class="form-label">Select User</label>
+                    <select class="form-select shadow-none">
+                     <option selected disabled>Select User</option>
+                     <?php
+                      // Fetch Book data from the database
+                      if ($userresult->num_rows > 0) {
+                        while($row = $userresult->fetch_assoc()) {
+                          echo "<option value=".htmlspecialchars($row['ID']).">".htmlspecialchars($row['FullName'])."</option>";
+                        }
+                      }
+                    ?>
                    </select>
                   </div>
                 </div>
@@ -156,18 +175,18 @@ $conn->close();
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label for="mobileno" class="form-label">starting receipt number</label>
-                    <input type="number" class="form-control" id="mobileno" name="mobileno" value="<?php echo isset($mobileno) ? htmlspecialchars($mobileno) : ''; ?>" required>
+                    <label for="mobileno" class="form-label">Starting Recept No.</label>
+                    <input type="number" class="form-control shadow-none" id="mobileno" name="mobileno" value="<?php echo isset($mobileno) ? htmlspecialchars($mobileno) : ''; ?>" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label for="address" class="form-label"> issue date</label>
-                    <input type="date" class="form-control" id="pure-date" aria-describedby="date-design-prepend">
+                    <label for="address" class="form-label">Issiue Date</label>
+                    <input type="date" class="form-control shadow-none" id="pure-date" aria-describedby="date-design-prepend">
                   </div>
                 </div>
               </div>
-              <button type="submit" name="adduser" class="btn btn-primary shadow-none">Submit</button>
+              <button type="submit" name="issueBook" class="btn btn-primary shadow-none">Issue Book</button>
             </form>
           </div>
       </div>
