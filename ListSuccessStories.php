@@ -65,7 +65,7 @@
 
 
 // Fetch story data from the database
-$query = "SELECT * FROM `successstories`";
+$query = "SELECT * FROM `successstories` ORDER BY CreatedAt DESC";
 $result = $conn->query($query);
 $conn->close();
 ?>
@@ -172,7 +172,7 @@ $conn->close();
             <div class="col-md-6">
               <div class="mb-3">
                 <label class="form-label">Enter Title</label>
-                <input type="text" class="form-control" name="title" value="<?php echo isset($fullname) ? htmlspecialchars($fullname) : ''; ?>" required>
+                <input type="text" class="form-control" name="title" required>
               </div>
             </div>
             <div class="col-md-6">
