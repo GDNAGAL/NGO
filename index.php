@@ -1,5 +1,17 @@
 <?php 
  require_once("include/dbconn.php");
+
+
+
+ $camquery = "SELECT * FROM `campaigns`order by CreatedAt DESC limit 4 ";
+ $camresult = $conn->query($camquery);
+
+
+
+ $query = "SELECT * FROM `successstories` order by CreatedAt DESC limit 4 ";
+ $result = $conn->query($query);
+
+ $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -109,65 +121,36 @@
       </div>
     </div>
   </div>
-  <div style="background-color: #E6F3FF;">
-    <div class="container pt-4 pb-4">
-      <div style="border-left: 5px solid black;" class="ps-2 mb-4 rounded-3"> 
-        <h3 class="d-flex" >Make A Donation</h3>
-        <span class="font-weight-light">Featured Campaign</span>
-      </div>
-      <div class="row text-center">
-        <div class="col-sm">
-          <div class="bg-white rounded-4 shadow mb-2 p-3 border-bottom border-primary border-5">
-            <img src="https://www.doghomefoundation.com/wp-content/uploads/2024/06/thumb.jpg" width="100%" class="rounded-3" alt="">
-            <div class="progress mt-3">
-              <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-            </div>
-            <div class="text-start mt-3 text-color">
-              <strong>Raised : </strong><span>₹ 10,000.00</span><br>
-              <strong>Goal : </strong><span>₹ 10,00,000.00</span>
-            </div><hr>
-            <h6 class="text-dark mt-3">Help Us Save Horses Of Kedarnath Yastra (Animal Abuse)</h6>
-            <p class="text-dark">The sacred Char Dham Yatra, a revered pilgrimage undertaken by devotees across India</p>
-            <button class="btn btn-outline-primary rounded-pill w-100"><i class="bi bi-heart"></i> Make A Donation</button>
-          </div>
+
+  <?php if ($camresult->num_rows > 0) { ?>
+    <div style="background-color: #E6F3FF;">
+      <div class="container pt-4 pb-4">
+        <div style="border-left: 5px solid black;" class="ps-2 mb-4 rounded-3"> 
+          <h3 class="d-flex" >Make A Donation</h3>
+          <span class="font-weight-light">Featured Campaign</span>
         </div>
-        <div class="col-sm">
-          <div class="bg-white rounded-4 shadow mb-2 p-3 border-bottom border-primary border-5">
-            <img src="https://www.doghomefoundation.com/wp-content/uploads/2024/06/thumb.jpg" width="100%" class="rounded-3" alt="">
-            <div class="progress mt-3">
-              <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+        <div class="row text-center">
+          <?php while($row = $camresult->fetch_assoc()) { ?>
+            <div class="col-sm">
+              <div class="bg-white rounded-4 shadow mb-2 p-3 border-bottom border-primary border-5">
+                <img src="https://www.doghomefoundation.com/wp-content/uploads/2024/06/thumb.jpg" width="100%" class="rounded-3" alt="">
+                <div class="progress mt-3">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                </div>
+                <div class="text-start mt-3 text-color">
+                  <strong>Raised : </strong><span>₹ 10,000.00</span><br>
+                  <strong>Goal : </strong><span>₹ 10,00,000.00</span>
+                </div><hr>
+                <h6 class="text-dark mt-3"><?php echo $row['Title']; ?></h6>
+                <p class="text-dark"><?php echo $row['Description']; ?></p>
+                <button class="btn btn-outline-primary rounded-pill w-100"><i class="bi bi-heart"></i> Make A Donation</button>
+              </div>
             </div>
-            <div class="text-start mt-3 text-color">
-              <strong>Raised : </strong><span>₹ 10,000.00</span><br>
-              <strong>Goal : </strong><span>₹ 10,00,000.00</span>
-            </div><hr>
-            <h6 class="text-dark mt-3">Help Us Save Horses Of Kedarnath Yastra (Animal Abuse)</h6>
-            <p class="text-dark">The sacred Char Dham Yatra, a revered pilgrimage undertaken by devotees across India</p>
-            <button class="btn btn-outline-primary rounded-pill w-100"><i class="bi bi-heart"></i> Make A Donation</button>
-          </div>
+          <?php } ?>
         </div>
-        <div class="col-sm">
-          <div class="bg-white rounded-4 shadow mb-2 p-3 border-bottom border-primary border-5">
-            <img src="https://www.doghomefoundation.com/wp-content/uploads/2024/06/thumb.jpg" width="100%" class="rounded-3" alt="">
-            <div class="progress mt-3">
-              <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-            </div>
-            <div class="text-start mt-3 text-color">
-              <strong>Raised : </strong><span>₹ 10,000.00</span><br>
-              <strong>Goal : </strong><span>₹ 10,00,000.00</span>
-            </div><hr>
-            <h6 class="text-dark mt-3">Help Us Save Horses Of Kedarnath Yastra (Animal Abuse)</h6>
-            <p class="text-dark">The sacred Char Dham Yatra, a revered pilgrimage undertaken by devotees across India</p>
-            <button class="btn btn-outline-primary rounded-pill w-100"><i class="bi bi-heart"></i> Make A Donation</button>
-          </div>
-        </div>
-      </div>
-      <div class="text-center m-4 mb-4">
-        <a href="createcampaign"><button class="btn btn-success me-3 shadow-none rounded-pill mt-4"><i class="bi bi-plus"></i> Create Fundraising Campaign</button></a>
-        <button class="btn btn-primary shadow-none rounded-pill mt-4">View All Campaign <i class="bi bi-chevron-compact-right"></i></button>
       </div>
     </div>
-  </div>
+  <?php } ?>
 
   <div style="background-image: url('https://www.doghomefoundation.com/wp-content/uploads/2023/06/banner2.jpg');">
     <div style="background-color: rgba(0, 0, 0, 0.7);"> 
@@ -203,10 +186,6 @@
   </div>   
 
   <?php
-  // Fetch user data from the database
-  $query = "SELECT * FROM `successstories` order by CreatedAt DESC limit 4 ";
-  $result = $conn->query($query);
-  $conn->close();
   if ($result->num_rows > 0) {
     ?>
     <div style="background-color: #E6F3FF;">
