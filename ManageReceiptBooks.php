@@ -119,7 +119,7 @@ $result = $conn->query($query);
             <tr>
               <th scope="col" class="no-wrap">S.No.</th>
               <th scope="col">Book Title</th>
-              <th scope="col">Status</th>
+              <th scope="col" class="text-center">Status</th>
               <th scope="col">Added Date</th>
               <th scope="col">Action</th>
             </tr>
@@ -133,7 +133,7 @@ $result = $conn->query($query);
                       echo "<tr>";
                       echo "<td>" . htmlspecialchars($n) . "</td>";
                       echo "<td>" . (htmlspecialchars($row['Title'])) . "</td>";
-                      echo "<td><span class='badge rounded-pill bg-".$row['BClass']."'>".(htmlspecialchars($row['StatusText']))."</span></td>";
+                      echo "<td class='text-center'><span class='badge rounded-pill bg-".$row['BClass']."'>".(htmlspecialchars($row['StatusText']))."</span></td>";
                       echo "<td class='no-wrap'>" . htmlspecialchars($row['CreatedAt']) . "</td>";
                       echo "<td><a href=''><i class='bi bi-pencil-fill'></i></a> <a href='' class='ms-3'><i class='bi bi-trash-fill'></i></a></td>";
                       echo "</tr>";
