@@ -141,7 +141,7 @@ $result = $conn->query($query);
                     $n++;
                       echo "<tr>";
                       echo "<td>" . htmlspecialchars($n) . "</td>";
-                      echo "<td><img src=" . (htmlspecialchars($row['Photo'])) . " width='100px'></td>";
+                      echo "<td><img src=" . (htmlspecialchars($row['Photo'])) . " width='60px'></td>";
                       echo "<td class='text-center'>".(htmlspecialchars($row['Name']))."</td>";
                       echo "<td class='no-wrap text-center'>" . htmlspecialchars($row['Designation']) . "</td>";
                       echo "<td class='text-center'><a href=''><i class='bi bi-pencil-fill me-3'></i></a> <a href='' title='Delete Book'><i class='bi bi-trash-fill'></i></a></td>";
