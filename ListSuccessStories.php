@@ -1,82 +1,67 @@
 <?php
  require_once("include/session.php");
- if(!isAllowed("Users")){
+ require_once("include/ftpService.php");
+ if(!isAllowed("ManageStory")){
     header("Location: AccessDenied");
     exit;
  }
 
-if (isset($_POST['addStory'])) {
-    $errorMessages = ""; 
-    $successMessages = ""; 
-    // Get and sanitize input values
-    $title = trim($_POST['title']);
-    $description = trim($_POST['story']);
-
-    // Handle file upload
-    $bannerPath = '';
-    $uploadFileDir = './Assets/StoryImages';
-    if (!is_dir($uploadFileDir)) {
-        if (!mkdir($uploadFileDir, 0755, true)) {
-            $errorMessages .= "Failed to create upload directory.<br>";
-        }
-    }
-    
-
-    if (isset($_FILES['storyimage']) && $_FILES['storyimage']['error'] == UPLOAD_ERR_OK) {
-        $fileTmpPath = $_FILES['storyimage']['tmp_name'];
-        $fileName = $_FILES['storyimage']['name'];
-        $fileSize = $_FILES['storyimage']['size'];
-        $fileType = $_FILES['storyimage']['type'];
-        $fileNameCmps = explode(".", $fileName);
-        $fileExtension = strtolower(end($fileNameCmps));
-        $allowedExtensions = array("jpg", "jpeg", "png");
-
-        if (in_array($fileExtension, $allowedExtensions)) {
-            $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
-            $dest_path = $uploadFileDir . $newFileName;
-            if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                $bannerPath = $dest_path;
-            } else {
-                $errorMessages .= "There was an error moving the uploaded file.<br>";
-            }
-        } else {
-            $errorMessages .= "Upload failed. Allowed file types: " . implode(", ", $allowedExtensions) . ".<br>";
-        }
-    } else {
-      $errorMessages .= "Please Select Image.<br>";
-    }
-
-    if (empty($errorMessages)) {
-        // Insert campaign into the database
-        $query = "INSERT INTO `campaigns` (`UserID`, `CompaignGUID`, `Title`, `Description`, `GoalAmount`, `StartDate`, `EndDate`, `isAcceptTerms`, `Status`, `BannerPath`, `CreatedAt`) 
-                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
-        $stmt = $conn->prepare($query);
-        if (!$stmt) {
-            $errorMessages = "Database prepare statement failed: " . $conn->error . "<br>";
-        } else {
-            $UserID = $user->UserID;
-            $status = 1; // Pending By Default
-            $CompaignGUID = md5(time());
-            $stmt->bind_param("ssssssssss",$UserID , $CompaignGUID, $title, $description, $goalamount, $startdate, $enddate, $acceptterms, $status, $bannerPath);
-            if ($stmt->execute()) {
-                $successMessages = "Campaign Created Successfully.";
-                $_SESSION['success'] = $successMessages;
-                header("Location: " . $_SERVER['PHP_SELF']);
-                exit;
-            } else {
-                $errorMessages = "Error: " . $stmt->error . "<br>";
-                // Delete the uploaded file if query fails
-                if (!empty($bannerPath) && file_exists($bannerPath)) {
-                  unlink($bannerPath);
-                }
-            }
-        }
-        $stmt->close();
-    }
-}
-
-
-
+ if (isset($_POST['addStory'])) {
+     $errorMessages = ""; 
+     $successMessages = ""; 
+ 
+     // Get and sanitize input values
+     $title = trim($_POST['title']);
+     $story = trim($_POST['story']);
+ 
+     if (isset($_FILES['storyimage']) && $_FILES['storyimage']['error'] == UPLOAD_ERR_OK) {
+         $fileTmpPath = $_FILES['storyimage']['tmp_name'];
+         $fileName = $_FILES['storyimage']['name'];
+         $fileNameCmps = explode(".", $fileName);
+         $fileExtension = strtolower(end($fileNameCmps));
+         $allowedExtensions = array("jpg", "jpeg", "png");
+ 
+         if (in_array($fileExtension, $allowedExtensions)) {
+             $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+             
+             // Upload the file to FTP
+             if(uploadToFtp($ftp_server, $ftp_username, $ftp_password, $fileTmpPath, $newFileName)){
+                 $bannerPath = $ftpPath . $newFileName;
+             } else {
+                 $errorMessages .= "There was an error moving the uploaded file.<br>";
+             }
+         } else {
+             $errorMessages .= "Upload failed. Allowed file types: " . implode(", ", $allowedExtensions) . ".<br>";
+         }
+     } else {
+         $errorMessages .= "Please Select Image.<br>";
+     }
+ 
+     if (empty($errorMessages)) {
+         // Insert story into database
+         $query = "INSERT INTO `successstories` (`Title`, `Story`, `ImagePath`, `CreatedAt`) 
+                   VALUES (?, ?, ?, NOW())";
+         $stmt = $conn->prepare($query);
+         
+         if ($stmt) {
+             $stmt->bind_param("sss", $title, $story, $bannerPath);
+             if ($stmt->execute()) {
+                 $successMessages = "Story Added Successfully.";
+                 $_SESSION['success'] = $successMessages;
+                 header("Location: " . $_SERVER['PHP_SELF']);
+                 exit;
+             } else {
+                 $errorMessages = "Error: " . $stmt->error . "<br>";
+                 // Delete the uploaded file if query fails
+                 deleteFromFtp($ftp_server, $ftp_username, $ftp_password, $newFileName);
+             }
+         } else {
+             $errorMessages = "Database prepare statement failed: " . $conn->error . "<br>";
+         }
+         $stmt->close();
+     }
+ }
+ 
 
 
 // Fetch user data from the database
@@ -117,18 +102,19 @@ $conn->close();
 <div style="background-color: #E6F3FF;">
   <div class="container pt-4 pb-4">
     <?php require("include/sidebar.php"); ?>
-    <?php if(!empty($errorMessages)): ?>
-      <div class="alert alert-danger">
-        <?php echo $errorMessages; ?>
-      </div>
-    <?php endif; ?>
-    <?php if(!empty($_SESSION['success'])): ?>
-      <div class="alert alert-success">
-        <?php echo $_SESSION['success'];
-        unset($_SESSION['success']);
-        ?>
-      </div>
-    <?php endif; ?>
+
+      <?php if(!empty($errorMessages)): ?>
+        <div class="alert alert-danger">
+          <?php echo $errorMessages; ?>
+        </div>
+      <?php endif; ?>
+      <?php if(!empty($_SESSION['success'])): ?>
+        <div class="alert alert-success">
+          <?php echo $_SESSION['success'];
+          unset($_SESSION['success']);
+          ?>
+        </div>
+      <?php endif; ?>
     <div class="bg-white shadow p-4 rounded-3">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h4 class="m-0">Success Stories</h4>
@@ -154,7 +140,7 @@ $conn->close();
                   $n++;
                     echo "<tr>";
                     echo "<td>" . htmlspecialchars($n) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['FullName']) . "</td>";
+                    echo "<td><img src=".$row['ImagePath']." width='40px' height='40px'/></td>";
                     echo "<td>" . (htmlspecialchars($row['Title'])) . "</td>";
                     echo "<td>" . htmlspecialchars($row['Story']) . "</td>";
                     echo "<td class='no-wrap'>" . htmlspecialchars($row['CreatedAt']) . "</td>";
@@ -181,7 +167,7 @@ $conn->close();
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="" autocomplete="off">
+        <form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
           <div class="row">
             <div class="col-md-6">
               <div class="mb-3">

@@ -51,7 +51,7 @@ if (isset($_SESSION['user_object'])) {
     switch ($user->Role) {
         case 'ADMIN':
             $navfile= 'Navigation/Admin.php';
-            $allowedPages = ["Users","AddUser","ViewAllCompaign"];
+            $allowedPages = ["Users","AddUser","ViewAllCompaign","ManageStory"];
             break;
     
         case 'NGOUSER':
