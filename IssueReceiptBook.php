@@ -9,66 +9,40 @@ if(!isAllowed("AddUser")){
 $errorMessages = ""; 
 $successMessages = ""; 
 
-if (isset($_POST['adduser'])) {
+if (isset($_POST['issueBook'])) {
     // Get and sanitize input values
-    $fullname = trim($_POST['fullname']);
-    $email = trim($_POST['email']);
-    $mobileno = trim($_POST['mobileno']);
-    $address = trim($_POST['address']);
-    $state = trim($_POST['state']);
-    $city = trim($_POST['city']);
-
-    // Validate inputs
-    if (empty($fullname)) {
-        $errorMessages .= "Full Name is required.<br>";
-    }
-    if (empty($mobileno)) {
-        $errorMessages .= "Mobile Number is required.<br>";
-    }
-    if (empty($address)) {
-        $errorMessages .= "Address is required.<br>";
-    }
-    if (empty($state)) {
-        $errorMessages .= "State is required.<br>";
-    }
-    if (empty($city)) {
-        $errorMessages .= "City is required.<br>";
-    }
+    $book = trim($_POST['book']);
+    $user = trim($_POST['user']);
+    $firstno = trim($_POST['firstno']);
+    $issuedate = trim($_POST['issuedate']);
 
     if (empty($errorMessages)) {
-        // Check if mobile number or email already exists
-        $checkQuery = "SELECT * FROM `users` WHERE `MobileNo` = ?";
-        if (!empty($email)) {
-            $checkQuery .= " OR `Email` = ?";
-        }
-        
+        // Check if book already issue
+        $checkQuery = "SELECT * FROM `receiptbookissue` WHERE ClosingReceiptNumber = '' AND ReceiptBookID = ?";
         $checkStmt = $conn->prepare($checkQuery);
         if (!$checkStmt) {
             $errorMessages = "Database prepare statement failed: " . $conn->error . "<br>";
         } else {
-            if (!empty($email)) {
-                $checkStmt->bind_param("ss", $mobileno, $email);
-            } else {
-                $checkStmt->bind_param("s", $mobileno);
-            }
+            $checkStmt->bind_param("s", $book);
             $checkStmt->execute();
             $result = $checkStmt->get_result();
             if ($result->num_rows > 0) {
-                $errorMessages = "Mobile Number or Email already exists.<br>";
+                $errorMessages = "Book Already Issued To A User.<br>";
             } else {
-                // Generate the password using MD5 hash of MobileNo
-                $password = md5($mobileno);
-
-                // Insert user details into the database
-                $query = "INSERT INTO `users` (`FullName`, `Email`, `isEmailVerified`, `MobileNo`, `isMobileVerified`, `DOB`, `AddressLine1`, `State`, `City`, `isAdmin`, `isNGOUser`, `CreatedAt`, `Password`) 
-                          VALUES (?, ?, '0', ?, '1', NULL, ?, ?, ?, '0', '1', NOW(), ?)";
+                
+                $query = "INSERT INTO `receiptbookissue` (`ReceiptBookID`, `UserID`, `StartReceiptNumber`, `ClosingReceiptNumber`, `IssueDate`, `CreatedAt`) 
+                          VALUES (?, ?, ?, NULL, ?, NOW())";
                 $stmt = $conn->prepare($query);
                 if (!$stmt) {
                     $errorMessages = "Database prepare statement failed: " . $conn->error . "<br>";
                 } else {
-                    $stmt->bind_param("sssssss", $fullname, $email, $mobileno, $address, $state, $city, $password);
+                    $stmt->bind_param("ssss", $book, $user, $firstno, $issuedate);
                     if ($stmt->execute()) {
-                        $successMessages = "User Added Successfully.";
+                        $uquery = "UPDATE `receiptbooks` SET `Status` = 2 WHERE `ID` = $book";
+                        $stmt = $conn->prepare($uquery);
+                        $stmt->execute();
+
+                        $successMessages = "Book Issued Successfully.";
                         $_SESSION['success'] = $successMessages;
                         header("Location: " . $_SERVER['PHP_SELF']);
                         exit;
@@ -142,13 +116,13 @@ $conn->close();
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="fullname" class="form-label">Select Receipt Book</label>
-                    <select class="form-select shadow-none">
+                    <select class="form-select shadow-none" name="book">
                     <option selected disabled>Select Book</option>
                     <?php
                       // Fetch Book data from the database
                       if ($bookresult->num_rows > 0) {
                         while($row = $bookresult->fetch_assoc()) {
-                          echo "<option value='" . htmlspecialchars($row['ID']) . "'>" . htmlspecialchars($row['Title']) . " - " . htmlspecialchars($row['MobileNo']) . "</option>";
+                          echo "<option value='" . htmlspecialchars($row['ID']) . "'>" . htmlspecialchars($row['Title']) . "</option>";
                         }
                       }
                     ?>
@@ -158,13 +132,13 @@ $conn->close();
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="email" class="form-label">Select User</label>
-                    <select class="form-select shadow-none">
+                    <select class="form-select shadow-none" name="user">
                      <option selected disabled>Select User</option>
                      <?php
                       // Fetch Book data from the database
                       if ($userresult->num_rows > 0) {
                         while($row = $userresult->fetch_assoc()) {
-                          echo "<option value=".htmlspecialchars($row['ID']).">".htmlspecialchars($row['FullName'])."</option>";
+                          echo "<option value=".htmlspecialchars($row['ID']).">".htmlspecialchars($row['FullName']). " - " . htmlspecialchars($row['MobileNo']) ."</option>";
                         }
                       }
                     ?>
@@ -176,13 +150,13 @@ $conn->close();
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="mobileno" class="form-label">Starting Recept No.</label>
-                    <input type="number" class="form-control shadow-none" id="mobileno" name="mobileno" value="<?php echo isset($mobileno) ? htmlspecialchars($mobileno) : ''; ?>" required>
+                    <input type="number" class="form-control shadow-none" id="mobileno" name="firstno" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="address" class="form-label">Issiue Date</label>
-                    <input type="date" class="form-control shadow-none" id="pure-date" aria-describedby="date-design-prepend">
+                    <input type="date" class="form-control shadow-none" name="issuedate" id="pure-date" aria-describedby="date-design-prepend" required>
                   </div>
                 </div>
               </div>
