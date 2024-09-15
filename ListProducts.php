@@ -188,13 +188,13 @@ $conn->close();
             <div class="col-md-6">
               <div class="mb-3">
                 <label class="form-label">Rate</label>
-                <input type="text" class="form-control" name="rate" required>
+                <input type="number" class="form-control" name="rate" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="mb-3">
                 <label class="form-label">Qty Needed</label>
-                <input type="text" class="form-control" name="qtyneeded" required>
+                <input type="number" class="form-control" name="qtyneeded" required>
               </div>
             </div>
           </div>
