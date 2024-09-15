@@ -1,3 +1,13 @@
+<?php 
+ require_once("include/dbconn.php");
+
+
+
+ $teamquery = "SELECT * FROM `ourteam` ORDER BY ShortIndex ASC";
+ $teamresult = $conn->query($teamquery);
+
+ $conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,90 +42,23 @@
   
   <div class="container p-4">
     <div class="row">
+    <?php if ($teamresult->num_rows > 0) { 
+      while($row = $teamresult->fetch_assoc()) {?>
       <div class="col-md-3 col-6">
         <div class="bg-white shadow rounded p-2 mb-4">
           <div class="rounded" style="border: 1px solid #008080;">
             <div class="p-4">
-              <img src="https://www.doghomefoundation.com/wp-content/uploads/2023/06/image-400x400-11.png" width="100%" class="rounded-pill p-1" style="border:5px solid #008080" alt="">
+              <img src="<?php echo $row['Photo'] ; ?>" width="100%" class="rounded-pill p-1" style="border:5px solid #008080" alt="">
             </div>
             <div class="text-center pt-4 pb-4">
-              <h5>Name of Person</h5>
-              <span>-Founder</span>
+              <h5><?php echo $row['Name'] ; ?></h5>
+              <span>-<?php echo $row['Designation'] ; ?></span>
             </div>
           </div>
         </div>
       </div>
+      <?php }} ?>
 
-      <div class="col-md-3 col-6">
-        <div class="bg-white shadow rounded p-2 mb-4">
-          <div class="rounded" style="border: 1px solid #008080;">
-            <div class="p-4">
-              <img src="https://www.doghomefoundation.com/wp-content/uploads/2023/06/image-400x400-11.png" width="100%" class="rounded-pill p-1" style="border:5px solid #008080" alt="">
-            </div>
-            <div class="text-center pt-4 pb-4">
-              <h5>Name of Person</h5>
-              <span>-Founder</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3 col-6">
-        <div class="bg-white shadow rounded p-2 mb-4">
-          <div class="rounded" style="border: 1px solid #008080;">
-            <div class="p-4">
-              <img src="https://www.doghomefoundation.com/wp-content/uploads/2023/06/image-400x400-11.png" width="100%" class="rounded-pill p-1" style="border:5px solid #008080" alt="">
-            </div>
-            <div class="text-center pt-4 pb-4">
-              <h5>Name of Person</h5>
-              <span>-Founder</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3 col-6">
-        <div class="bg-white shadow rounded p-2 mb-4">
-          <div class="rounded" style="border: 1px solid #008080;">
-            <div class="p-4">
-              <img src="https://www.doghomefoundation.com/wp-content/uploads/2023/06/image-400x400-11.png" width="100%" class="rounded-pill p-1" style="border:5px solid #008080" alt="">
-            </div>
-            <div class="text-center pt-4 pb-4">
-              <h5>Name of Person</h5>
-              <span>-Founder</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-3 col-6">
-        <div class="bg-white shadow rounded p-2 mb-4">
-          <div class="rounded" style="border: 1px solid #008080;">
-            <div class="p-4">
-              <img src="https://www.doghomefoundation.com/wp-content/uploads/2023/06/image-400x400-11.png" width="100%" class="rounded-pill p-1" style="border:5px solid #008080" alt="">
-            </div>
-            <div class="text-center pt-4 pb-4">
-              <h5>Name of Person</h5>
-              <span>-Founder</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3 col-6">
-        <div class="bg-white shadow rounded p-2 mb-4">
-          <div class="rounded" style="border: 1px solid #008080;">
-            <div class="p-4">
-              <img src="https://www.doghomefoundation.com/wp-content/uploads/2023/06/image-400x400-11.png" width="100%" class="rounded-pill p-1" style="border:5px solid #008080" alt="">
-            </div>
-            <div class="text-center pt-4 pb-4">
-              <h5>Name of Person</h5>
-              <span>-Founder</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <?php require("include/footer.php"); ?>

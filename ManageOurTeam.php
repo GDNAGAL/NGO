@@ -41,8 +41,8 @@
 
   if (empty($errorMessages)) {
       // Insert story into database
-      $query = "INSERT INTO `ourteam` (`Name`, `Designation`, `Photo`, `CreatedAt`) 
-                VALUES (?, ?, ?, NOW())";
+      $query = "INSERT INTO `ourteam` (`Name`, `Designation`, `Photo`, `CreatedAt`, `ShortIndex`) 
+                VALUES (?, ?, ?, NOW(), 25)";
       $stmt = $conn->prepare($query);
       
       if ($stmt) {
@@ -140,8 +140,8 @@ $result = $conn->query($query);
                   while($row = $result->fetch_assoc()) {
                     $n++;
                       echo "<tr>";
-                      echo "<td>" . htmlspecialchars($n) . "</td>";
-                      echo "<td><img src=" . (htmlspecialchars($row['Photo'])) . " width='60px'></td>";
+                      echo "<td class='text-center'>" . htmlspecialchars($n) . "</td>";
+                      echo "<td><img src=" . (htmlspecialchars($row['Photo'])) . " width='40px' height='40px'></td>";
                       echo "<td class='text-center'>".(htmlspecialchars($row['Name']))."</td>";
                       echo "<td class='no-wrap text-center'>" . htmlspecialchars($row['Designation']) . "</td>";
                       echo "<td class='text-center'><a href=''><i class='bi bi-pencil-fill me-3'></i></a> <a href='' title='Delete Book'><i class='bi bi-trash-fill'></i></a></td>";
