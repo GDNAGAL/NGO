@@ -13,14 +13,33 @@
   // Get and sanitize input values
   $booktitle = trim($_POST['booktitle']);
 
+  // Check if the book already exists
+  $query = "SELECT * FROM `receiptbooks` WHERE `Title` = ?";
+  $stmt = $conn->prepare($query);
+  
+  if ($stmt) {
+      $stmt->bind_param("s", $booktitle);
+      $stmt->execute();
+      $result = $stmt->get_result();
+
+      if ($result->num_rows > 0) {
+          // Book already exists
+          $errorMessages .= "A book with the same title already exists.<br>";
+      }
+
+      $stmt->close();
+  } else {
+      $errorMessages = "Database prepare statement failed: " . $conn->error . "<br>";
+  }
+
   if (empty($errorMessages)) {
-      // Insert story into database
+      // If no errors, insert the new book
       $query = "INSERT INTO `receiptbooks` (`Title`, `Status`, `CreatedAt`) 
                 VALUES (?, 1, NOW())";
       $stmt = $conn->prepare($query);
       
       if ($stmt) {
-          $stmt->bind_param("s", $booktitle,);
+          $stmt->bind_param("s", $booktitle);
           if ($stmt->execute()) {
               $successMessages = "Book Added Successfully.";
               $_SESSION['success'] = $successMessages;
@@ -35,6 +54,7 @@
       $stmt->close();
   }
 }
+
 
 
 
