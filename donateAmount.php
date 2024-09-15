@@ -1,3 +1,116 @@
+<?php
+require_once("include/dbconn.php");
+session_start();
+$totalAmount = 0;
+if (isset($_GET['type'])) {
+  if($_GET['type'] == 'product'){
+    if (isset($_COOKIE['productsInCart'])) {
+      $products = json_decode($_COOKIE['productsInCart'], true);
+      if (empty($products) || count($products) == 0) {
+        header('Location: products');
+        exit();
+      }
+      foreach ($products as $product) {
+        $totalAmount += $product['Rate'] * $product['Quantity'];
+      }
+      $totalAmount = number_format($totalAmount, 2);
+    } else {
+      header('Location: products');
+      exit();
+    }
+  }else{
+    header('Location: products');
+    exit();
+  }
+}
+
+$tp = "";
+if($totalAmount>0){
+  $i = "<input type='number' class='form-control'  name='amount' value='$totalAmount' readonly required>";
+  $tp = "<strong>Total Payable Amount : <span class='text-success fw-normal'>$totalAmount</span></strong>";
+}else{
+  $i = "<input type='number' class='form-control' name='amount' value='' required>";
+}
+
+
+
+if (isset($_POST['addDonation'])) {
+  $errorMessages = ""; 
+  $successMessages = ""; 
+
+  // Get and sanitize input values
+  $fullname = trim($_POST['fullname']);
+  $email = trim($_POST['email']);
+  $mobileno = trim($_POST['mobileno']);
+  $address = trim($_POST['address']);
+  $state = trim($_POST['state']);
+  $city = trim($_POST['city']);
+  $amount = trim($_POST['amount']);
+  $paymentMethod = trim($_POST['paymentMethod']);
+  $ref = trim($_POST['ref']);
+  $donorid = 0;
+
+  // Check if the donor already exists
+  $query = "SELECT ID FROM `donors` WHERE `Mobile` = ? OR `Email` = ? LIMIT 1";
+  $stmt = $conn->prepare($query);
+  
+  if ($stmt) {
+      $stmt->bind_param("ss", $mobileno, $email);
+      $stmt->execute();
+      $result = $stmt->get_result();
+
+      if ($result->num_rows == 0) {
+          // Insert New Donor
+          $adddonorquery = "INSERT INTO `donors` (`Name`, `Email`, `Mobile`, `Address`, `City`, `State`, `CreatedAt`) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+          $dstmt = $conn->prepare($adddonorquery);
+          if ($dstmt) {
+              $dstmt->bind_param("ssssss", $fullname, $email, $mobileno, $address, $city, $state);
+              if ($dstmt->execute()) {
+                  $donorid = $conn->insert_id;
+              } else {
+                  $errorMessages .= "Error inserting donor: " . $dstmt->error . "<br>";
+              }
+              $dstmt->close();
+          } else {
+              $errorMessages .= "Database prepare statement failed for donor insertion: " . $conn->error . "<br>";
+          }
+      } else {
+          $row = $result->fetch_assoc();
+          $donorid = $row['ID'];
+      }
+      $stmt->close();
+  } else {
+      $errorMessages .= "Database prepare statement failed for donor check: " . $conn->error . "<br>";
+  }
+
+  if (empty($errorMessages)) {
+      // Insert the donation
+      $donationDate = date('Y-m-d'); // Get current date
+      $query = "INSERT INTO `donations` (`DonorID`, `Amount`, `DonationDate`, `DonationTypeID`, `PaymentMethod`, `TransactionID`, `ReceiptNumber`, `isAnonymous`, `InternalUserID`, `Status`, `CreatedAt`) VALUES (?, ?, ?, 1, ?, ?, NULL, 0, NULL, 1, NOW())";
+      $stmt = $conn->prepare($query);
+      
+      if ($stmt) {
+          $stmt->bind_param("sssss", $donorid, $amount, $donationDate, $paymentMethod, $ref);
+          if ($stmt->execute()) {
+              $successMessages = "Donation Added Successfully.";
+              $_SESSION['success'] = $successMessages;
+              header("Location: " . $_SERVER['PHP_SELF']);
+              exit;
+          } else {
+              $errorMessages .= "Error inserting donation: " . $stmt->error . "<br>";
+          }
+          $stmt->close();
+      } else {
+          $errorMessages .= "Database prepare statement failed for donation insertion: " . $conn->error . "<br>";
+      }
+  }
+}
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +126,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="contact.html">
-
     <style>
 
     </style>
@@ -53,13 +164,13 @@
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="fullname" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo isset($fullname) ? htmlspecialchars($fullname) : ''; ?>" required>
+                    <input type="text" class="form-control" id="fullname" name="fullname" value="" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>">
+                    <input type="text" class="form-control" id="email" name="email" value="">
                   </div>
                 </div>
               </div>
@@ -67,13 +178,13 @@
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="mobileno" class="form-label">Mobile No</label>
-                    <input type="number" class="form-control" id="mobileno" name="mobileno" value="<?php echo isset($mobileno) ? htmlspecialchars($mobileno) : ''; ?>" required>
+                    <input type="number" class="form-control" id="mobileno" name="mobileno" value="" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" value="<?php echo isset($address) ? htmlspecialchars($address) : ''; ?>" required>
+                    <input type="text" class="form-control" id="address" name="address" value="" required>
                   </div>
                 </div>
               </div>
@@ -83,7 +194,6 @@
                     <label for="state" class="form-label">Select State</label>
                     <select class="form-control" name="state" id="state" required>
                       <option selected>RAJASTHAN</option>
-                      <!-- Add more states as needed -->
                     </select>
                   </div>
                 </div>
@@ -92,8 +202,7 @@
                     <label for="city" class="form-label">Select City</label>
                     <select class="form-control" name="city" id="city" required>
                       <option value=""></option>
-                      <option <?php echo (isset($city) && $city==="BIKANER") ? 'selected' : '';?>> BIKANER</option>
-                      <!-- Add more cities as needed -->
+                      <option value="BIKANER"> BIKANER</option>
                     </select>
                   </div>
                 </div>
@@ -102,13 +211,13 @@
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="mobileno" class="form-label">Enter Amount</label>
-                    <input type="number" class="form-control" id="mobileno" name="mobileno" value="<?php echo isset($mobileno) ? htmlspecialchars($mobileno) : ''; ?>" required>
+                    <?php echo $i; ?>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="address" class="form-label">Select Payment Method</label>
-                    <select class="form-control" name="state" id="paymentMethod" required>
+                    <select class="form-control" name="paymentMethod" id="paymentMethod" required>
                       <option value=""></option>
                       <option value="ONLINE_PAYMENT">Online Payment</option>
                       <option value="BANK_TRANSFER">Bank Transfer</option>
@@ -151,7 +260,7 @@
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label for="mobileno" class="form-label">Enter Transaction Ref. No.</label>
-                    <input type="text" class="form-control" id="mobileno" name="mobileno" value="<?php echo isset($mobileno) ? htmlspecialchars($mobileno) : ''; ?>" required>
+                    <input type="text" class="form-control" name="ref" value="" required>
                   </div>
                 </div>
               </div> 
@@ -169,8 +278,10 @@
                   <li>After payment, submit the transaction ID via below input.</li>
                 </ul>
               </div>  
-              <button type="button" class="btn btn-primary shadow-none">Proceed to Payment</button>
-              <button type="submit" name="adduser" class="btn btn-primary shadow-none d-none">Submit</button>
+              <div class="d-flex justify-content-between">
+                <button type="submit" name="addDonation" class="btn btn-primary shadow-none">Proceed to Payment</button>
+                <div><?php echo $tp; ?></div>
+              </div>
             </form>
         </div>
       </div>

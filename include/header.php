@@ -1,5 +1,5 @@
 <?php
-  error_reporting(0);
+  //error_reporting(0);
   session_start();
  //require("session.php");
 ?>
@@ -86,8 +86,9 @@ input[type=number] {
                 <!-- <i class="bi bi-telephone-fill me-2"></i> -->
                 <button type="button" class="w-100 btn btn-danger shadow-none">Login / Register</button></a>
             </li>
+            <?php };?>
             <li class="nav-item">
-            <div class="dropdown">
+              <div class="dropdown">
                 <a class="btn btn-success shadow-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Donate Now
                 </a>
                 <ul class="dropdown-menu" style="right:0!important; left:auto!important">
@@ -96,7 +97,6 @@ input[type=number] {
                 </ul>
               </div>
             </li>
-            <?php };?>
 
             <?php if (isset($_SESSION['loggedin'])) {?>
             <li class="nav-item">

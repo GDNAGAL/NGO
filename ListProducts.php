@@ -48,7 +48,7 @@
          if ($stmt) {
              $stmt->bind_param("sssss", $title, $rate, $qtyneeded, $uom, $bannerPath);
              if ($stmt->execute()) {
-                 $successMessages = "Story Added Successfully.";
+                 $successMessages = "Product Added Successfully.";
                  $_SESSION['success'] = $successMessages;
                  header("Location: " . $_SERVER['PHP_SELF']);
                  exit;
