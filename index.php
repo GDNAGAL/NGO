@@ -1,3 +1,6 @@
+<?php 
+ require_once("include/dbconn.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,7 +202,45 @@
     </div>
   </div>   
 
-  <div style="background-color: #E6F3FF;">
+  <?php
+  // Fetch user data from the database
+  $query = "SELECT * FROM `successstories` limit 4 order by CreatedAt DESC";
+  $result = $conn->query($query);
+  $conn->close();
+  if ($result->num_rows > 0) {
+    ?>
+    <div style="background-color: #E6F3FF;">
+      <div class="container pt-4 pb-4">
+        <div style="border-left: 5px solid black;" class="ps-2 mb-4 rounded-3"> 
+          <h3 class="d-flex" >Success Stories</h3>
+          <span class="font-weight-light">Our hurt to healed stories</span>
+        </div>
+        <div class="row text-center">
+          <?php
+          while($row = $result->fetch_assoc()) {
+            ?>
+              <div class="col-sm">
+                <div class="bg-white rounded-4 shadow mb-2 p-3 border-bottom border-success border-5">
+                  <img src="<?php echo $row['ImagePath']; ?>" width="100%" class="rounded-3" alt="">
+                  <h5 class="text-dark mt-3"><?php echo $row['Title']; ?></h5>
+                  <p class="text-dark"><?php echo $row['Story']; ?></p>
+                  <button class="btn btn-outline-success rounded-pill">Read More <i class="bi bi-chevron-compact-right"></i></button>
+                </div>
+              </div>
+            <?php
+          }
+          ?>
+        </div>
+        <div class="text-center m-4 mb-4">
+          <a href="success"><button class="btn btn-success rounded-pill mt-4">View All Stories <i class="bi bi-chevron-compact-right"></i></button></a>
+        </div>
+      </div>
+    </div>
+    <?php
+  }
+  ?>
+
+  <!-- <div style="background-color: #E6F3FF;">
     <div class="container pt-4 pb-4">
       <div style="border-left: 5px solid black;" class="ps-2 mb-4 rounded-3"> 
         <h3 class="d-flex" >Success Stories</h3>
@@ -243,7 +284,7 @@
         <a href="success"><button class="btn btn-success rounded-pill mt-4">View All Stories <i class="bi bi-chevron-compact-right"></i></button></a>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div style="background-image: url('https://www.doghomefoundation.com/wp-content/uploads/2023/06/banner3.jpg');">
     <div style="background-color: rgba(0, 0, 0, 0.7);">

@@ -64,7 +64,7 @@
  
 
 
-// Fetch user data from the database
+// Fetch story data from the database
 $query = "SELECT * FROM `successstories`";
 $result = $conn->query($query);
 $conn->close();
