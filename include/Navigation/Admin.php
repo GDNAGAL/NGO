@@ -5,6 +5,9 @@
     <a href="ListProducts"><i class="bi bi-receipt me-3"></i></i>Manage Products</a>
 </li>
 <li class="nav-link">
+    <a href="ManageOurTeam"><i class="bi bi-receipt me-3"></i></i>Manage NGO Team</a>
+</li>
+<li class="nav-link">
     <a href="ManageReceiptBooks"><i class="bi bi-receipt me-3"></i></i>Manage Receipt Book</a>
 </li>
 <li class="nav-link">
